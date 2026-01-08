@@ -10,9 +10,12 @@ function SubmissionFull({ items }) {
   const item = items.find((i) => i._id === id);
 
 
- const [fontSize, setFontSize] = useState(window.innerWidth < 550 ? 24 : 78);
+    const [fontSize, setFontSize] = useState(window.innerWidth < 550 ? 24 : 78);
     const [leading, setLeading] = useState(12)
+    const [tracking, setTracking] = useState(0)
     const [activeOrientation, setActiveOrientation] = useState('center')
+    
+
 
   const divRef = React.useRef(null);
 
@@ -91,18 +94,18 @@ function SubmissionFull({ items }) {
 
   {
   fonts.map((font) => {
-  
+  return (
+    <>
       <LoadFonts font={font.file} author={sluggify(author)} fontName={typefaceName} fontStyle={font.note}/>
-
-
-
-  return <h2 className={sluggify(typefaceName)+"_"+sluggify(font.note)}
-
-  style={{
-      fontSize: `${fontSize}px`, 
-      lineHeight: `${leading/10}`, 
-      textAlign: `${activeOrientation}` 
-    }} key={font._id}>{font.testText}</h2>;
+      <h2 className={sluggify(typefaceName)+"_"+sluggify(font.note)}
+        style={{
+          fontSize: `${fontSize}px`, 
+          lineHeight: `${leading/10}`, 
+          letterSpacing: `${tracking}em`,
+          textAlign: `${activeOrientation}` 
+        }} key={font._id}>{font.testText}</h2>
+    </>
+  );
 })}
       
        <ControlPanel
@@ -110,6 +113,8 @@ function SubmissionFull({ items }) {
                 setFontSize={setFontSize}
                 leading={leading}
                 setLeading={setLeading}
+                tracking={tracking}
+                setTracking={setTracking}
                 activeOrientation={activeOrientation}
                 setActiveOrientation={setActiveOrientation}
                 />

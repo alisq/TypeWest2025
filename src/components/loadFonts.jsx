@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { sluggify } from "../utils/functions.js";
 
 function LoadFonts({ font, author, fontName, fontStyle }) {
+  console.log(fontStyle)
   const styleName = fontStyle ?? "reg";
 
   const woffFileUrl =

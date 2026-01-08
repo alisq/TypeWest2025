@@ -5,6 +5,8 @@ function ControlPanel({
   setFontSize,
   leading,
   setLeading,
+  tracking,
+  setTracking,
   activeOrientation,
   setActiveOrientation,
 }) {
@@ -30,10 +32,21 @@ function ControlPanel({
           value={leading}
           onChange={(e) => setLeading(e.target.value)}
         />
-
-        <div className="left">
+           <div className="left">
           Line Height: <strong>{leading / 10}</strong>
         </div>
+        <input
+          className="slider"
+          type="range"
+          min="0"
+          max="100"
+          value={tracking}
+          onChange={(e) => setTracking((e.target.value-20)/200)}
+        />
+        <div className="left">
+          Tracking: <strong>{tracking}%</strong>
+        </div>
+     
 
         <div
           className={`text_align left ${

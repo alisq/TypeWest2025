@@ -22,13 +22,14 @@ function App() {
       .then(json => setItems(json.result));
   }, []);
 
+  
   return (
     <div className="App">
          
          <Header />
 
             {items.map(item=>(
-        <LoadFonts key={'font'+item._id} font={item.woffFile} author={item.author} fontName={item.typefaceName}/>
+        <LoadFonts key={'font'+item._id} font={item.fonts[0].file} author={item.author} fontName={item.typefaceName} fontStyle={item.fonts[0].note}/>
       ))}
 
      <div id="container">
