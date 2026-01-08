@@ -106,6 +106,8 @@ header ul li {
 .grid_four {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 2em;
+  grid-column-gap: 2em;
 }
 
 footer ul {
@@ -134,7 +136,7 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 2em;
-  padding-bottom: 2em;
+  padding: 1em 1em 2em;
 }
 
 .caption {
