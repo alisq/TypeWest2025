@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Duplicate";
+  src: url("/public/fonts/DuplicateSans-Regular-Web.woff") format("woff");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Duplicate";
+  src: url("/public/fonts/DuplicateSans-Bold-Web.woff") format("woff");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Duplicate";
+  src: url("/public/fonts/DuplicateSans-RegularItalic-Web.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+body {
+  font-family: "Duplicate";
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.submission_teaser {
+  padding: 0.5em;
+}
+
+.top_bar {
+  border-bottom: 1px solid;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  padding: 0.5em;
+}
+
+.right {
+  text-align: right;
+}
+
+/*# sourceMappingURL=main.css.map */
