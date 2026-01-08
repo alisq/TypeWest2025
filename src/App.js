@@ -1,8 +1,9 @@
 import './css/reset.css';
 import './css/main.css';
-import { Link, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+
 import { useEffect, useState } from "react";
-import SubmissionTeaser from './components/submissionTeaser.jsx';
+import SubmissionList from './components/submissionList.jsx';
 import SubmissionFull from './components/submissionFull.jsx';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
@@ -27,28 +28,16 @@ function App() {
          <Header />
 
             {items.map(item=>(
-        <LoadFonts key={'font'+item._id} font={"https://cdn.sanity.io/files/1ml3hcmy/production/"+item.woffFile.asset._ref.split("-")[1]+"."+item.woffFile.asset._ref.split("-")[2]} author={item.author} fontName={item.typefaceName}/>
+        <LoadFonts key={'font'+item._id} font={item.woffFile} author={item.author} fontName={item.typefaceName}/>
       ))}
 
-     
-        {/* 👇 STEP THREE GOES HERE */}
+     <div id="container">
+        
     <Routes>
 
-      {/* LIST / INDEX VIEW */}
-      <Route
-        path="/"
-        element={
-          items.map(item => (
-            <Link
-              key={item._id}
-              to={`/font/${item._id}`}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <SubmissionTeaser {...item} />
-            </Link>
-          ))
-        }
-      />
+      
+
+                <Route path="/" element={<SubmissionList items={items} />} />
 
       {/* FULL VIEW */}
       <Route
@@ -57,6 +46,7 @@ function App() {
       />
 
     </Routes>
+    </div>
         <Footer />
     </div>
   );

@@ -3,7 +3,6 @@ import { sluggify } from '../utils/functions.js';
 
 function SubmissionTeaser({typefaceName, shortDesc, longDesc, woffFile, customTesterText, processImages,externalFontWebsite, inUseImages, author, biography, externalLink, foregroundColor, backgroundColor}) {
 
-   const woffFileUrl = "https://cdn.sanity.io/files/1ml3hcmy/production/"+woffFile.asset._ref.split("-")[1]+"."+woffFile.asset._ref.split("-")[2]
   
      
   return (

@@ -1,32 +1,46 @@
-import { useEffect } from 'react';
-import { sluggify } from '../utils/functions.js';
+import { useEffect } from "react";
+import { sluggify } from "../utils/functions.js";
 
-function LoadFonts({font, author, fontName}) {
-    
-useEffect(() => {
-  const style = document.createElement('style');
-  style.setAttribute('data-font', fontName); // Helpful for debugging or future cleanup
-  style.textContent = `
-    @font-face {
-      font-family: '${fontName}';
-      src: url('${font}') format('${font.split(".")[3]}');
+function LoadFonts({ font, author, fontName, fontStyle }) {
+  const styleName = fontStyle ?? "reg";
+
+  const woffFileUrl =
+    "https://cdn.sanity.io/files/1ml3hcmy/production/" +
+    font.asset._ref.split("-")[1] +
+    "." +
+    font.asset._ref.split("-")[2];
+
+  useEffect(() => {
+    const styleId = `font-${sluggify(fontName)}-${sluggify(styleName)}`;
+
+    // avoid duplicates on re-render
+    if (document.getElementById(styleId)) return;
+
+    const style = document.createElement("style");
+    style.id = styleId;
+    style.setAttribute("data-font", fontName);
+
+    const format = woffFileUrl.split(".").pop(); // "woff2" etc.
+
+    style.textContent = `
+      @font-face {
+        font-family: '${fontName}_${styleName}';
+        src: url('${woffFileUrl}') format('${format}');
         font-weight: 400;
-  font-style: normal;
-    }
+        font-style: normal;
+      }
 
-    .${sluggify(author)} h2{
-      font-family: '${fontName}';
-    }
-  `;
+      .${sluggify(fontName)}_${sluggify(styleName)} {
+        font-family: '${fontName}_${styleName}';
+      }
+    `;
 
-  document.head.appendChild(style);
+    document.head.appendChild(style);
 
-  
-}, []);
+    return () => style.remove(); // cleanup on unmount/change
+  }, [fontName, styleName, woffFileUrl]);
 
-
-
-  return null; // This component just injects styles
+  return null;
 }
 
 export default LoadFonts;
