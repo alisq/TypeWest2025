@@ -1,7 +1,7 @@
 import { sluggify } from '../utils/functions.js';
 
 
-function SubmissionTeaser({typefaceName, shortDesc, longDesc, woffFile, customTesterText, processImages,externalFontWebsite, inUseImages, author, biography, externalLink, foregroundColor, backgroundColor}) {
+function SubmissionTeaser({fonts, typefaceName, shortDesc, longDesc, woffFile, customTesterText, processImages,externalFontWebsite, inUseImages, author, biography, externalLink, foregroundColor, backgroundColor}) {
 
   
      
@@ -23,7 +23,12 @@ function SubmissionTeaser({typefaceName, shortDesc, longDesc, woffFile, customTe
     </div>
   </div>
 
-      <h2>{typefaceName}</h2>
+      <h4 
+      className={sluggify(typefaceName)+"_"+sluggify(fonts[0].note)}
+      style={{
+    fontSize: "70px",
+    
+  }}>{fonts[0].testText}</h4>
         <p>
         
         
