@@ -26,11 +26,11 @@ function Footer() {
                     Michelle Ghiotti<br />
                     Alexis Gonzalez<br />
                     Nick Giammarco<br />
-
                     Rush Jackson<br />
                     Jesse M. Kahn<br />
-                    Eugime Lee<br />
+                    Eugime Lee<br />                    
                     Mikey Kien Mai<br />
+                    Amanda Piotrowski<br />
                     Ali S. Qadeer<br />
                     Arlyn Ramos<br />
                     Sabrina Sommer<br />

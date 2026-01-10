@@ -12,7 +12,7 @@ function ControlPanel({
 }) {
   return (
     <div className="control_panel">
-      <div className="control_interior">
+      <div>
         <input
           className="slider"
           type="range"
@@ -24,6 +24,8 @@ function ControlPanel({
         <div className="left">
           Size: <strong>{fontSize}px</strong>
         </div>
+      </div>
+      <div>
         <input
           className="slider"
           type="range"
@@ -35,6 +37,8 @@ function ControlPanel({
            <div className="left">
           Line Height: <strong>{leading / 10}</strong>
         </div>
+      </div>
+      <div>
         <input
           className="slider"
           type="range"
@@ -46,7 +50,8 @@ function ControlPanel({
         <div className="left">
           Tracking: <strong>{tracking}%</strong>
         </div>
-     
+           </div>
+      <div>
 
         <div
           className={`text_align left ${

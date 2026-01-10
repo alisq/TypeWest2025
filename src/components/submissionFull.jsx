@@ -68,6 +68,20 @@ function SubmissionFull({ items }) {
   const bg = backgroundColor?.hex || "#ffffff";
   const fg = foregroundColor?.hex || "#000000";
 
+
+const style = document.createElement("style");
+style.id = sluggify(author);
+style.setAttribute("data-color", sluggify(author));
+
+style.textContent = `
+        .submission_full_top .control_panel .slider { background: ${fg}};
+        .submission_full_top .control_panel .slider::-webkit-slider-thumb { background: ${fg}};
+        .submission_full_top .control_panel .slider::-moz-slider-thumb { background: ${fg}};
+`;
+document.head.appendChild(style)
+
+
+
   // longDesc is Portable Text; this is a safer “quick display” than longDesc[0].children[0].text
   const longDescText =
     Array.isArray(longDesc)
@@ -80,8 +94,8 @@ function SubmissionFull({ items }) {
   return (
     <>
     
-    <article
-      className={"submission_teaser " + sluggify(author || "")}
+    <section
+      className={"submission_full_top " + sluggify(author || "")}
       style={{ backgroundColor: bg, color: fg }}
     >
       <div className="top_bar" style={{ borderColor: fg }}>
@@ -123,8 +137,8 @@ function SubmissionFull({ items }) {
 
    
 
-    </article>
-    <section className="submission_body" style={{ color: bg, backgroundColor: fg }}>
+    </section>
+    <section className="submission_full_body" style={{ color: bg, backgroundColor: fg }}>
       <div className="grid_four">
 
         <div><h3>About</h3>{longDescText}</div>
