@@ -8,6 +8,7 @@ import SubmissionFull from './components/submissionFull.jsx';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
 import LoadFonts from './components/loadFonts.jsx';
+import InformationPage from './components/informationPage.jsx';
 
 const SANITY_URL =
   "https://1ml3hcmy.api.sanity.io/v2026-01-06/data/query/production?query=*[_type==%22submission%22]";
@@ -44,6 +45,11 @@ function App() {
       <Route
         path="/font/:id"
         element={<SubmissionFull items={items} />}
+      />
+
+      <Route
+        path="/Information"
+        element={<InformationPage />}
       />
 
     </Routes>

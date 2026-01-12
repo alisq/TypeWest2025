@@ -115,7 +115,7 @@ document.head.appendChild(style)
         style={{
           fontSize: `${fontSize}px`, 
           lineHeight: `${leading/10}`, 
-          letterSpacing: `${tracking}em`,
+          letterSpacing: `${tracking/500}em`,
           textAlign: `${activeOrientation}` 
         }} key={font._id}>{font.testText}</h2>
     </>

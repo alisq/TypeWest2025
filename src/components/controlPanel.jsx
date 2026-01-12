@@ -42,10 +42,10 @@ function ControlPanel({
         <input
           className="slider"
           type="range"
-          min="0"
+          min="-20"
           max="100"
           value={tracking}
-          onChange={(e) => setTracking((e.target.value-20)/200)}
+          onChange={(e) => setTracking(e.target.value)}
         />
         <div className="left">
           Tracking: <strong>{tracking}%</strong>

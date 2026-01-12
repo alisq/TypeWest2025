@@ -12,11 +12,11 @@ function Footer() {
                     This website is presented by the Type West 2025 Online Cohort.
                 </p>
             </li>
-            <li className="light">
+            <li className="light two_up">
                 
 
                 <div className="two_columns small">
-                    <strong>Online cohort</strong><br />
+                    <strong>Online cohort</strong><br /><br />
                     Edgar Capula<br />
                     Burgin Canbay<br />
                     Flora de Carvalho<br />
@@ -35,10 +35,27 @@ function Footer() {
                     Arlyn Ramos<br />
                     Sabrina Sommer<br />
                     Uliana Tsoryk 
-</div>
+                </div>
 
+                <div className="small">
+                    <strong>Term Instructors</strong><br />
+                    <br />
+                    Sahar Afshar<br />
+                    <br />
+                    Romina Hernandez<br />
+                    Fer Cozzi<br />
+                    Michele Pantene<br />
+                    <br />
+                    <strong>Teaching Assistants</strong><br />
+                    <br />
+                    Annie Szafranski<br />
+                    April Morabla<br />
+                    Dashaen Singh <br />
+                    Kim-Kim Bui<br />
+</div>
             </li>
             </ul>
+
         </footer>
     )
 }

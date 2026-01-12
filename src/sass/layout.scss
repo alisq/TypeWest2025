@@ -9,6 +9,7 @@
     display:grid;
     grid-template-columns: 1fr 3fr;
     padding:0.5em;
+    font-size:10pt;
     
 }
 
@@ -42,6 +43,7 @@ header {
 .submission_teaser_list {
     display:grid;
     grid-template-columns:1fr 1fr;
+    min-height:80vh;
 }
 
 .grid_four {
@@ -106,7 +108,53 @@ footer ul {
                 }
             }
         }
+        
     }
+
+
+    .bar {
+  width: 16px;
+  height: 2px;
+  background-color: black;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+
+.text_align {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+  margin:7px; 
+  cursor:pointer;
+
+  
+  &:hover .bar,
+  &.active .bar {
+      background:white;
+    }
+  
+
+  & .bar {
+    width:22px;
+    
+
+  &:nth-child(2) {
+      width:18px;
+    }
+  }
+
+  &.center {
+    align-items: center;
+   
+  }
+
+  &.right {
+    align-items: end;
+   
+  }
+  
+}
 
 img {
     max-width:100%;
@@ -134,4 +182,34 @@ img {
 .caption {
     text-align:center;
     margin-top:0.5em;
+}
+
+.nav {
+    & .light:hover {
+        background:black;        
+    }
+
+    & a .light {
+        transition:all 0.2s;
+    }
+
+    & a:link:hover .light,
+    & a:visited:hover .light {
+        color:white;
+    }
+
+    & .dark a:link:hover  {
+        background:white;        
+    }
+
+    & a .dark {
+        transition:all 0.2s;
+    }
+
+    & a:link:hover .dark,
+    & a:visited:hover .dark {
+        color:black;
+    }
+
+
 }
