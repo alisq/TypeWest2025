@@ -110,7 +110,7 @@ document.head.appendChild(style)
   fonts.map((font) => {
   return (
     <>
-      <LoadFonts font={font.file} author={sluggify(author)} fontName={typefaceName} fontStyle={font.note}/>
+    
       <h2 className={sluggify(typefaceName)+"_"+sluggify(font.note)}
         style={{
           fontSize: `${fontSize}px`, 

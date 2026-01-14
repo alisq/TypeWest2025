@@ -23,12 +23,11 @@ function SubmissionTeaser({fonts, typefaceName, shortDesc, longDesc, woffFile, c
     </div>
   </div>
 
-      <h4 
-      className={sluggify(typefaceName)+"_"+sluggify(fonts[0].note)}
-      style={{
-    fontSize: "70px",
-    
-  }}>{fonts[0].testText}</h4>
+      <h4 className="scroll-on-hover">
+          <span className={sluggify(typefaceName)+"_"+sluggify(fonts[0].note)}>{fonts[0].testText} </span>
+          <span className={sluggify(typefaceName)+"_"+sluggify(fonts[1].note)}>{fonts[1].testText} </span>
+          <span className={sluggify(typefaceName)+"_"+sluggify(fonts[2].note)}>{fonts[2].testText}</span>
+        </h4>
         <p>
         
         

@@ -67,9 +67,17 @@ strong {
   text-decoration: none;
 }
 
+.no-wrap {
+  white-space: nowrap;
+}
+
+h4 {
+  font-size: 70px;
+}
+
 .submission_teaser {
-  aspect-ratio: 3/1.5;
   padding: 0.5em;
+  overflow-x: hidden;
 }
 
 .top_bar {
@@ -105,8 +113,6 @@ header ul li {
 }
 
 .submission_teaser_list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   min-height: 80vh;
 }
 
@@ -239,6 +245,22 @@ img {
 }
 .nav a:link:hover .dark, .nav a:visited:hover .dark {
   color: black;
+}
+
+.scroll-on-hover {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.scroll-on-hover {
+  display: inline-block;
+  transform: translateX(0);
+  transition: transform 4s linear;
+}
+
+article:hover .scroll-on-hover {
+  transform: translateX(calc(-100% + 100vw));
 }
 
 /*# sourceMappingURL=main.css.map */
