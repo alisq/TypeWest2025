@@ -24,9 +24,16 @@ function SubmissionTeaser({fonts, typefaceName, shortDesc, longDesc, woffFile, c
   </div>
 
       <h4 className="scroll-on-hover">
-          <span className={sluggify(typefaceName)+"_"+sluggify(fonts[0].note)}>{fonts[0].testText} </span>
-          <span className={sluggify(typefaceName)+"_"+sluggify(fonts[1].note)}>{fonts[1].testText} </span>
-          <span className={sluggify(typefaceName)+"_"+sluggify(fonts[2].note)}>{fonts[2].testText}</span>
+
+          {
+            fonts.map(font =>{
+              return (
+                <span key={font._key} className={sluggify(typefaceName)+"_"+sluggify(font.note)}>{font.testText} </span>
+              )
+            })
+          }
+
+          
         </h4>
         <p>
         
