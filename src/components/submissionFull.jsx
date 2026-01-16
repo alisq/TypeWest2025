@@ -19,17 +19,17 @@ function SubmissionFull({ items }) {
 
   const divRef = React.useRef(null);
 
-  const handleClick = () => {
+  // const handleClick = () => {
     
-    const range = document.createRange();
-    const selection = window.getSelection();
+  //   const range = document.createRange();
+  //   const selection = window.getSelection();
 
-    if (divRef.current && selection) {
-      range.selectNodeContents(divRef.current);
-      selection.removeAllRanges();
-      selection.addRange(range);
-    }
-  };
+  //   if (divRef.current && selection) {
+  //     range.selectNodeContents(divRef.current);
+  //     selection.removeAllRanges();
+  //     selection.addRange(range);
+  //   }
+  // };
 
 
   useEffect(()=> {
@@ -75,8 +75,10 @@ style.setAttribute("data-color", sluggify(author));
 
 style.textContent = `
         .submission_full_top .control_panel .slider { background: ${fg}};
-        .submission_full_top .control_panel .slider::-webkit-slider-thumb { background: ${fg}};
-        .submission_full_top .control_panel .slider::-moz-slider-thumb { background: ${fg}};
+        .submission_full_top .control_panel .slider::-webkit-slider-thumb { background: ${fg}; }
+        .submission_full_top .control_panel .slider::-moz-range-thumb {  background: ${fg}; }
+
+        
 `;
 document.head.appendChild(style)
 
@@ -151,9 +153,12 @@ document.head.appendChild(style)
           </div>
         <div><h3>{author}</h3>{parse(portableTextToHtml(biography))}</div>
       </div>
+
+      {processImages?.length > 0 && (
       <div className="processImages">
         <h3>Process</h3>
         <div></div>
+
         {processImages.map(((processImage)=> (
           <div className="processImage">
               <img src={getImageURL(processImage.image)} />
@@ -165,20 +170,25 @@ document.head.appendChild(style)
         )
         ))}
       </div>
-      <div className="inUseImages">
-        <h3>In Use</h3>
-        <div></div>
-        {inUseImages.map(((inUseImage)=> (
-          <div className="inUseImage">
-              <img src={getImageURL(inUseImage.image)} />
-              <div className="caption">
-                {inUseImage.caption}
-              </div>
-          </div>
+      )}
+
+      {inUseImages?.length > 0 && (
+        <div className="inUseImages">
+          <h3>In Use</h3>
+          <div></div>
+          {inUseImages.map(((inUseImage)=> (
+            <div className="inUseImage">
+                <img src={getImageURL(inUseImage.image)} />
+                <div className="caption">
+                  {inUseImage.caption}
+                </div>
+            </div>
+            
+          )
+          ))}
           
-        )
-        ))}
-      </div>
+        </div>
+       )}
     </section>
    
     </>
