@@ -70,8 +70,8 @@ function SubmissionFull({ items }) {
 
 
 const style = document.createElement("style");
-style.id = sluggify(author);
-style.setAttribute("data-color", sluggify(author));
+// style.id = sluggify(author);
+// style.setAttribute("data-color", sluggify(author));
 
 style.textContent = `
         .submission_full_top .control_panel .slider { background: ${fg}};
@@ -80,7 +80,7 @@ style.textContent = `
 
         
 `;
-document.head.appendChild(style)
+// document.head.appendChild(style)
 
 
 
@@ -98,9 +98,11 @@ document.head.appendChild(style)
     
     <section
       className={"submission_full_top " + sluggify(author || "")}
-      style={{ backgroundColor: bg, color: fg }}
+      // style={{ backgroundColor: bg, color: fg }}
     >
-      <div className="top_bar" style={{ borderColor: fg }}>
+      <div 
+        // style={{ borderColor: fg }}
+        >
         <div className="left">
           <strong>{typefaceName}</strong> by {author}
         </div>
@@ -140,7 +142,9 @@ document.head.appendChild(style)
    
 
     </section>
-    <section className="submission_full_body" style={{ color: bg, backgroundColor: fg }}>
+    <section className="submission_full_body" 
+    // style={{ color: bg, backgroundColor: fg }}
+    >
       <div className="grid_four">
 
         <div><h3>About</h3>{longDescText}</div>

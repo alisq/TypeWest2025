@@ -78,6 +78,7 @@ h4 {
 .submission_teaser {
   padding: 0.5em;
   overflow-x: hidden;
+  background: red;
 }
 
 .top_bar {
@@ -87,6 +88,7 @@ h4 {
   padding: 0.5em;
   font-size: 10pt;
   margin-bottom: 1em;
+  color: white;
 }
 
 header ul {
@@ -135,6 +137,7 @@ footer ul li {
 .submission_full_top {
   aspect-ratio: 3/1.5;
   position: relative;
+  background: red;
 }
 .submission_full_top .control_panel {
   position: absolute;
