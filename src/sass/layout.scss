@@ -1,9 +1,10 @@
+@import 'vars';
 
 .submission_teaser {
     // aspect-ratio: 3 / 1.5;
     padding:0.5em;
     overflow-x:hidden;
-    background:red;
+    background:$red;
     // color:white;
 }
 
@@ -69,7 +70,7 @@ footer ul {
 .submission_full_top {
     aspect-ratio: 3 / 1.5;
     position:relative;
-    background:red;
+    background:$red;
 
     & .control_panel {
         position:absolute;

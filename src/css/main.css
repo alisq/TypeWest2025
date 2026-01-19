@@ -78,7 +78,7 @@ h4 {
 .submission_teaser {
   padding: 0.5em;
   overflow-x: hidden;
-  background: red;
+  background: #d33124;
 }
 
 .top_bar {
@@ -137,7 +137,7 @@ footer ul li {
 .submission_full_top {
   aspect-ratio: 3/1.5;
   position: relative;
-  background: red;
+  background: #d33124;
 }
 .submission_full_top .control_panel {
   position: absolute;
