@@ -38,11 +38,6 @@ function SubmissionTeaser({fonts, typefaceName, shortDesc, longDesc, woffFile, c
 
           
         </h4>
-        <p>
-        
-        
-      </p>
-      
     </article>
   );
 }
