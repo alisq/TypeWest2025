@@ -132,3 +132,12 @@ export function cropUrl(url, { w = 1200, h = 900, fit = "crop" } = {}) {
   u.searchParams.set("auto", "format");
   return u.toString();
 }
+
+export function shuffleArray(array) {
+  const arr = [...array]; // don’t mutate original
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}

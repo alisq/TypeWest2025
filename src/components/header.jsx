@@ -20,7 +20,7 @@ function Header() {
                 </li>
             </Link>
             <li className="dark">
-                About Type West
+                <a href="https://typewest.letterformarchive.org/" target="_blank">About Type West</a>
             </li>
             </ul>
         </header>

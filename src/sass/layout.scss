@@ -80,6 +80,12 @@ footer ul {
 
     padding-bottom:5em;
 
+
+    & h2::selection {
+        color: $red;
+        background-color: white;
+    }
+
     & .control_panel {
         position:absolute;
         bottom:0;
@@ -241,4 +247,61 @@ img {
 
 article:hover .scroll-on-hover  {
   transform: translateX(calc(-100% + 100vw));
+}
+
+
+dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  
+}
+
+.dropdownTrigger {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.3rem 0.6rem;
+  font: inherit;
+  background:white;
+  border-radius: 30px;
+  margin: 0 5em 0 0 ;
+  
+}
+
+.dropdownMenu {
+  position: absolute;
+  bottom: calc(100% + 0.2rem);
+  left: 0;
+  z-index: 50;
+  width: 30%;
+  margin: 0;
+  padding: 0.25rem 0;
+  list-style: none;
+  background: white;
+  border: 1px solid currentColor;
+}
+
+.dropdownItem {
+  padding: 0.55rem 0.9rem;
+  cursor: pointer;
+  user-select: none;
+ &:hover {
+  background: rgba($red, 0.2);
+    }
+}
+
+
+
+.dropdownItem.active {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.chevron {
+  font-size: 2em;
+  line-height: 0
 }

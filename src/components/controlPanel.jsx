@@ -1,3 +1,5 @@
+import React, { useEffect, useRef, useState } from "react";
+
 function ControlPanel({
   fontSize,
   setFontSize,
@@ -10,25 +12,73 @@ function ControlPanel({
   versions,
   fontName,
   activeVersion,
-  setActiveVersion
+  setActiveVersion,
 }) {
+  // ----- Custom dropdown state -----
+  const [open, setOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown on outside click / escape
+  useEffect(() => {
+    const onMouseDown = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+
+    document.addEventListener("mousedown", onMouseDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onMouseDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, []);
+
   return (
     <div className="control_panel">
-
-      {/* VERSION SELECT */}
+      {/* VERSION SELECT (fully styleable) */}
       {versions?.length > 0 && (
         <div className="control_group">
-          
-          <select
-            value={activeVersion}
-            onChange={(e) => setActiveVersion(e.target.value)}
-          >
-            {versions.map((version) => (
-              <option key={version} value={version}>
-                {fontName+" "+version}
-              </option>
-            ))}
-          </select>
+          <div className="dropdown" ref={dropdownRef}>
+            <button
+              type="button"
+              className="dropdownTrigger"
+              onClick={() => setOpen((o) => !o)}
+              aria-haspopup="listbox"
+              aria-expanded={open}
+            >
+              <span className="dropdownValue">
+                {fontName} {activeVersion}
+              </span>
+              <span className="chevron" aria-hidden="true">
+                ^
+              </span>
+            </button>
+
+            {open && (
+              <ul className="dropdownMenu" role="listbox">
+                {versions.map((version) => (
+                  <li
+                    key={version}
+                    role="option"
+                    aria-selected={version === activeVersion}
+                    className={`dropdownItem ${
+                      version === activeVersion ? "active" : ""
+                    }`}
+                    onClick={() => {
+                      setActiveVersion(version);
+                      setOpen(false);
+                    }}
+                  >
+                    {fontName} {version}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       )}
 
@@ -40,7 +90,7 @@ function ControlPanel({
           min="30"
           max="250"
           value={fontSize}
-          onChange={(e) => setFontSize(parseInt(e.target.value))}
+          onChange={(e) => setFontSize(parseInt(e.target.value, 10))}
         />
         <div className="left">
           Size: <strong>{fontSize}px</strong>
@@ -86,6 +136,11 @@ function ControlPanel({
               activeOrientation === align ? "active" : ""
             }`}
             onClick={() => setActiveOrientation(align)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") setActiveOrientation(align);
+            }}
           >
             <div className="bar"></div>
             <div className="bar"></div>
@@ -93,7 +148,6 @@ function ControlPanel({
           </div>
         ))}
       </div>
-
     </div>
   );
 }

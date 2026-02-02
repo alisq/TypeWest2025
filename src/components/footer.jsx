@@ -9,7 +9,7 @@ function Footer() {
                 </p>
 
                 <p>
-                    This website is presented by the Type West 2025 Online Cohort.
+                    This website is presented by the Type West 2025 Cohort.
                 </p>
             </li>
             <li className="light four_up">
@@ -69,21 +69,20 @@ Yvonne Yeh
                     Kim-Kim Bui<br />
 </div>
 
+
                 <div className="small">
                     <strong>Term Instructors (In-person)</strong><br />
                     <br />
-                    Chris Wilmore<br />
-                    <br />
-                    ?<br />
-                    ?<br />
-                    ?<br />
+                   Maria Doreuli<br />
+                   <br />
+Grendl Löfkvist<br />
+Kel Troughton<br />
+Christopher Slye<br />
+Graham Bradley<br />
                     <br />
                     <strong>Teaching Assistants  (In-person)</strong><br />
                     <br />
-                    ?<br />
-                    ?<br />
-                    ? <br />
-                    ?<br />
+                    Chris Willmore<br />
 </div>
             </li>
             </ul>

@@ -9,6 +9,7 @@ import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
 import LoadFonts from './components/loadFonts.jsx';
 import InformationPage from './components/informationPage.jsx';
+import {shuffleArray} from './utils/functions.js';
 
 const SANITY_URL =
   `https://1ml3hcmy.api.sanity.io/v2026-01-06/data/query/production?query=*[_type=="submission"]{_id,typefaceName,shortDesc,longDesc,author,authorImage,biography,fonts,processImages[]{caption,alt,image{asset->{url}}},inUseImages[]{caption,alt,image{asset->{url}}}}
@@ -21,7 +22,7 @@ function App() {
   useEffect(() => {
     fetch(SANITY_URL)
       .then(res => res.json())
-      .then(json => setItems(json.result));
+      .then(json => setItems(shuffleArray(json.result)));
   }, []);
 
   
