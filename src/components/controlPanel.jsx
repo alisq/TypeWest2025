@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import {ReactComponent as Chevron } from "../chevron.svg";
 
 function ControlPanel({
   fontSize,
@@ -43,7 +44,7 @@ function ControlPanel({
       {versions?.length > 0 && (
         <div className="control_group">
           <div className="dropdown" ref={dropdownRef}>
-            <button
+            <div
               type="button"
               className="dropdownTrigger"
               onClick={() => setOpen((o) => !o)}
@@ -54,9 +55,9 @@ function ControlPanel({
                 {fontName} {activeVersion}
               </span>
               <span className="chevron" aria-hidden="true">
-                ^
+                <Chevron />
               </span>
-            </button>
+            </div>
 
             {open && (
               <ul className="dropdownMenu" role="listbox">
@@ -83,7 +84,7 @@ function ControlPanel({
       )}
 
       {/* FONT SIZE */}
-      <div>
+      <div className="slider_container">
         <input
           className="slider"
           type="range"
@@ -92,13 +93,13 @@ function ControlPanel({
           value={fontSize}
           onChange={(e) => setFontSize(parseInt(e.target.value, 10))}
         />
-        <div className="left">
+        <div>
           Size: <strong>{fontSize}px</strong>
         </div>
       </div>
 
       {/* LEADING */}
-      <div>
+      <div className="slider_container">
         <input
           className="slider"
           type="range"
@@ -107,13 +108,13 @@ function ControlPanel({
           value={leading}
           onChange={(e) => setLeading(e.target.value)}
         />
-        <div className="left">
+        <div >
           Line Height: <strong>{leading / 10}</strong>
         </div>
       </div>
 
       {/* TRACKING */}
-      <div>
+      <div className="slider_container">
         <input
           className="slider"
           type="range"
@@ -122,7 +123,7 @@ function ControlPanel({
           value={tracking}
           onChange={(e) => setTracking(e.target.value)}
         />
-        <div className="left">
+        <div>
           Tracking: <strong>{tracking}%</strong>
         </div>
       </div>

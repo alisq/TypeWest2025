@@ -53,13 +53,17 @@ Yvonne Yeh
                 
 
                 <div className="small">
-                    <strong>Term Instructors (online)</strong><br />
+                    <strong>Instructors (online)</strong><br />
                     <br />
                     Sahar Afshar<br />
                     <br />
                     Romina Hernandez<br />
                     Fer Cozzi<br />
                     Michele Pantene<br />
+                    <br />
+                    Ewan Clayton<br />
+                    Briar Levit<br />
+                    Grendl Löfkvist<br />
                     <br />
                     <strong>Teaching Assistants  (online)</strong><br />
                     <br />
@@ -71,18 +75,23 @@ Yvonne Yeh
 
 
                 <div className="small">
-                    <strong>Term Instructors (In-person)</strong><br />
+                    <strong>Instructors (In-person)</strong><br />
                     <br />
                    Maria Doreuli<br />
                    <br />
-Grendl Löfkvist<br />
+
 Kel Troughton<br />
 Christopher Slye<br />
 Graham Bradley<br />
+<br />
+Grendl Löfkvist<br />
                     <br />
                     <strong>Teaching Assistants  (In-person)</strong><br />
                     <br />
                     Chris Willmore<br />
+                    <br />
+                    Eli Block<br />
+                    Whitney Smith
 </div>
             </li>
             </ul>

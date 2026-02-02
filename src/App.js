@@ -12,7 +12,7 @@ import InformationPage from './components/informationPage.jsx';
 import {shuffleArray} from './utils/functions.js';
 
 const SANITY_URL =
-  `https://1ml3hcmy.api.sanity.io/v2026-01-06/data/query/production?query=*[_type=="submission"]{_id,typefaceName,shortDesc,longDesc,author,authorImage,biography,fonts,processImages[]{caption,alt,image{asset->{url}}},inUseImages[]{caption,alt,image{asset->{url}}}}
+  `https://1ml3hcmy.api.sanity.io/v2026-01-06/data/query/production?query=*[_type=="submission"]{_id,typefaceName,shortDesc,videoUrl,longDesc,author,authorImage,biography,fonts,processImages[]{caption,alt,image{asset->{url}}},inUseImages[]{caption,alt,image{asset->{url}}}}
 `
 
 

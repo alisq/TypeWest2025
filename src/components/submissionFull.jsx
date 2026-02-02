@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { sluggify, getImageURL, cropUrl, portableTextToHtml } from "../utils/functions.js";
 import parse from "html-react-parser";
 import ControlPanel from "./controlPanel.jsx";
+import VideoEmbed from "./videoEmbed.jsx";
 
 function SubmissionFull({ items }) {
   const { id } = useParams();
@@ -51,10 +52,13 @@ function SubmissionFull({ items }) {
     biography,
     foregroundColor,
     backgroundColor,
+    videoUrl,
     processImages,
     inUseImages
   } = item;
 
+
+  
   const longDescText =
     Array.isArray(longDesc)
       ? longDesc.flatMap((block) => block?.children || []).map((c) => c?.text || "").join("")
@@ -63,7 +67,7 @@ function SubmissionFull({ items }) {
   return (
     <>
       <section className={"submission_full_top " + sluggify(author || "")}>
-        <div>
+        <div className="two_up">
           <div className="left">
             <strong>{typefaceName}</strong> by {author}
           </div>
@@ -128,6 +132,8 @@ function SubmissionFull({ items }) {
           </div>
         )}
 
+        
+
         {inUseImages?.length > 0 && (
           <div className="inUseImages">
             <h3>In Use</h3>
@@ -139,6 +145,13 @@ function SubmissionFull({ items }) {
               </div>
             ))}
           </div>
+        )}
+
+
+        {videoUrl !== undefined && (
+          
+          <VideoEmbed videoUrl={videoUrl} />
+          
         )}
       </section>
     </>
