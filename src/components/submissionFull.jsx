@@ -11,10 +11,10 @@ function SubmissionFull({ items }) {
   const item = useMemo(() => items?.find((i) => i._id === id), [items, id]);
 
   // Local UI state (hooks must be top-level)
-  const [fontSize, setFontSize] = useState(window.innerWidth < 550 ? 24 : 78);
-  const [leading, setLeading] = useState(12);
+  const [fontSize, setFontSize] = useState(window.innerWidth < 550 ? 50 : 150);
+  const [leading, setLeading] = useState(10);
   const [tracking, setTracking] = useState(0);
-  const [activeOrientation, setActiveOrientation] = useState("center");
+  const [activeOrientation, setActiveOrientation] = useState("left");
   const [activeVersion, setActiveVersion] = useState("");
 
   // Pull fonts safely (empty array if item not ready)
@@ -81,7 +81,7 @@ function SubmissionFull({ items }) {
           }}
           key={selectedFont?._id}
         >
-          {selectedFont?.testText}
+          {fonts[0].testText}
         </h2>
 
         <ControlPanel

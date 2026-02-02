@@ -33,6 +33,10 @@ p {
   margin-bottom: 0.5em;
 }
 
+h2 {
+  outline: 0;
+}
+
 h3 {
   font-weight: bold;
   margin-bottom: 1em;
@@ -140,15 +144,14 @@ footer ul li {
 }
 
 .submission_full_top {
-  aspect-ratio: 3/1.5;
   position: relative;
   background: #d33124;
+  padding-bottom: 5em;
 }
 .submission_full_top .control_panel {
   position: absolute;
   bottom: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   width: 100%;
   grid-column-gap: 1em;
 }
@@ -159,7 +162,7 @@ footer ul li {
   background: black;
   outline: none;
   margin-top: 1rem;
-  width: 100%;
+  width: 20vw;
   position: relative;
   top: -5px;
 }

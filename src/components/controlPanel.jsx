@@ -37,8 +37,8 @@ function ControlPanel({
         <input
           className="slider"
           type="range"
-          min="14"
-          max="150"
+          min="30"
+          max="250"
           value={fontSize}
           onChange={(e) => setFontSize(parseInt(e.target.value))}
         />
