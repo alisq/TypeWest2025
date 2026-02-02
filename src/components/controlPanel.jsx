@@ -1,5 +1,3 @@
-
-
 function ControlPanel({
   fontSize,
   setFontSize,
@@ -9,9 +7,32 @@ function ControlPanel({
   setTracking,
   activeOrientation,
   setActiveOrientation,
+  versions,
+  fontName,
+  activeVersion,
+  setActiveVersion
 }) {
   return (
     <div className="control_panel">
+
+      {/* VERSION SELECT */}
+      {versions?.length > 0 && (
+        <div className="control_group">
+          
+          <select
+            value={activeVersion}
+            onChange={(e) => setActiveVersion(e.target.value)}
+          >
+            {versions.map((version) => (
+              <option key={version} value={version}>
+                {fontName+" "+version}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      {/* FONT SIZE */}
       <div>
         <input
           className="slider"
@@ -25,6 +46,8 @@ function ControlPanel({
           Size: <strong>{fontSize}px</strong>
         </div>
       </div>
+
+      {/* LEADING */}
       <div>
         <input
           className="slider"
@@ -34,10 +57,12 @@ function ControlPanel({
           value={leading}
           onChange={(e) => setLeading(e.target.value)}
         />
-           <div className="left">
+        <div className="left">
           Line Height: <strong>{leading / 10}</strong>
         </div>
       </div>
+
+      {/* TRACKING */}
       <div>
         <input
           className="slider"
@@ -50,42 +75,25 @@ function ControlPanel({
         <div className="left">
           Tracking: <strong>{tracking}%</strong>
         </div>
-           </div>
-      <div>
-
-        <div
-          className={`text_align left ${
-            activeOrientation === "left" ? "active" : ""
-          }`}
-          onClick={() => setActiveOrientation("left")}
-        >
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-        </div>
-
-        <div
-          className={`text_align center ${
-            activeOrientation === "center" ? "active" : ""
-          }`}
-          onClick={() => setActiveOrientation("center")}
-        >
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-        </div>
-
-        <div
-          className={`text_align right ${
-            activeOrientation === "right" ? "active" : ""
-          }`}
-          onClick={() => setActiveOrientation("right")}
-        >
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-        </div>
       </div>
+
+      {/* ALIGNMENT */}
+      <div>
+        {["left", "center", "right"].map((align) => (
+          <div
+            key={align}
+            className={`text_align ${align} ${
+              activeOrientation === align ? "active" : ""
+            }`}
+            onClick={() => setActiveOrientation(align)}
+          >
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </div>
+        ))}
+      </div>
+
     </div>
   );
 }
