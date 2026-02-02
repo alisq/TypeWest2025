@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
-import { sluggify, getImageURL, portableTextToHtml } from "../utils/functions.js";
+import { sluggify, getImageURL, cropUrl, portableTextToHtml } from "../utils/functions.js";
 import parse from 'html-react-parser';
 import React, { useEffect, useState } from 'react';
-import LoadFonts from './loadFonts';
+// import LoadFonts from './loadFonts';
 import ControlPanel from "./controlPanel.jsx";
+
 
 function SubmissionFull({ items }) {
   const { id } = useParams();
@@ -62,7 +63,7 @@ function SubmissionFull({ items }) {
   } = item;
 
   
-
+console.log(authorImage)
 
 
   const bg = backgroundColor?.hex || "#ffffff";
@@ -115,7 +116,7 @@ style.textContent = `
   return (
     <>
     
-      <h2 className={sluggify(typefaceName)+"_"+sluggify(font.note)}
+      <h2 contentEditable className={sluggify(typefaceName)+"_"+sluggify(font.note)}
         style={{
           fontSize: `${fontSize}px`, 
           lineHeight: `${leading/10}`, 
@@ -150,10 +151,12 @@ style.textContent = `
         <div><h3>About</h3>{longDescText}</div>
         <div></div>
         <div>
-          <div
-              className="authorImage"
-              style={{ backgroundImage: `url(${getImageURL(authorImage)})` }}
-            />
+    {authorImage && (
+  <div
+    className="authorImage"
+    style={{ backgroundImage: `url(${getImageURL(authorImage)})` }}
+  />
+)}
           </div>
         <div><h3>{author}</h3>{parse(portableTextToHtml(biography))}</div>
       </div>
@@ -163,9 +166,11 @@ style.textContent = `
         <h3>Process</h3>
         <div></div>
 
+        
+
         {processImages.map(((processImage)=> (
           <div className="processImage">
-              <img src={getImageURL(processImage.image)} />
+              <img src={cropUrl(processImage.image.asset.url, { w: 1600, h: 1200 })} />
               <div className="caption">
                 {processImage.caption}
               </div>
@@ -182,7 +187,7 @@ style.textContent = `
           <div></div>
           {inUseImages.map(((inUseImage)=> (
             <div className="inUseImage">
-                <img src={getImageURL(inUseImage.image)} />
+                <img src={cropUrl(inUseImage.image.asset.url, { w: 1600, h: 1200 })} />
                 <div className="caption">
                   {inUseImage.caption}
                 </div>

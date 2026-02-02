@@ -3,6 +3,9 @@ import { sluggify } from "../utils/functions.js";
 
 function LoadFonts({ font, author, fontName, fontStyle }) {
   
+
+  
+
   const styleName = fontStyle ?? "reg";
 
   const woffFileUrl =
@@ -10,6 +13,8 @@ function LoadFonts({ font, author, fontName, fontStyle }) {
     font.asset._ref.split("-")[1] +
     "." +
     font.asset._ref.split("-")[2];
+
+    
 
   useEffect(() => {
     const styleId = `font-${sluggify(fontName)}-${sluggify(styleName)}`;

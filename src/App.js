@@ -11,7 +11,8 @@ import LoadFonts from './components/loadFonts.jsx';
 import InformationPage from './components/informationPage.jsx';
 
 const SANITY_URL =
-  "https://1ml3hcmy.api.sanity.io/v2026-01-06/data/query/production?query=*[_type==%22submission%22]";
+  `https://1ml3hcmy.api.sanity.io/v2026-01-06/data/query/production?query=*[_type=="submission"]{_id,typefaceName,shortDesc,longDesc,author,authorImage,biography,fonts,processImages[]{caption,alt,image{asset->{url}}},inUseImages[]{caption,alt,image{asset->{url}}}}
+`
 
 
 function App() {

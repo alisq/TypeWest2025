@@ -8,7 +8,7 @@
     // color:white;
 }
 
-.top_bar {.  
+.top_bar {
     border-bottom:1px solid;
     display:grid;
     grid-template-columns: 1fr 3fr;
@@ -34,6 +34,12 @@ header {
     .two_up {
         display:grid;
         grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .four_up {
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
     }
 
     .light {

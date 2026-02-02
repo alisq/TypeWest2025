@@ -12,10 +12,12 @@ function Footer() {
                     This website is presented by the Type West 2025 Online Cohort.
                 </p>
             </li>
-            <li className="light two_up">
+            <li className="light four_up">
                 
 
-                <div className="two_columns small">
+
+
+                <div className="small">
                     <strong>Online cohort</strong><br /><br />
                     Edgar Capula<br />
                     Burgin Canbay<br />
@@ -38,7 +40,20 @@ function Footer() {
                 </div>
 
                 <div className="small">
-                    <strong>Term Instructors</strong><br />
+                    <strong>In-Person cohort</strong><br /><br />
+                    Sylvia Gonzalez<br />
+Naveen Hattis<br />
+Việt Huỳnh<br />
+Brigitte La<br />
+Katie Shia<br />
+Sam Song<br />
+Yvonne Yeh
+                </div>
+
+                
+
+                <div className="small">
+                    <strong>Term Instructors (online)</strong><br />
                     <br />
                     Sahar Afshar<br />
                     <br />
@@ -46,12 +61,29 @@ function Footer() {
                     Fer Cozzi<br />
                     Michele Pantene<br />
                     <br />
-                    <strong>Teaching Assistants</strong><br />
+                    <strong>Teaching Assistants  (online)</strong><br />
                     <br />
                     Annie Szafranski<br />
                     April Morabla<br />
                     Dashaen Singh <br />
                     Kim-Kim Bui<br />
+</div>
+
+                <div className="small">
+                    <strong>Term Instructors (In-person)</strong><br />
+                    <br />
+                    Chris Wilmore<br />
+                    <br />
+                    ?<br />
+                    ?<br />
+                    ?<br />
+                    <br />
+                    <strong>Teaching Assistants  (In-person)</strong><br />
+                    <br />
+                    ?<br />
+                    ?<br />
+                    ? <br />
+                    ?<br />
 </div>
             </li>
             </ul>

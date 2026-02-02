@@ -25,6 +25,7 @@ export function shuffle(array) {
 }
 export function getImageURL(ref) {
 
+  
   return "https://cdn.sanity.io/images/1ml3hcmy/production/"+ref.asset._ref.split("-")[1]+"-"+ref.asset._ref.split("-")[2]+"."+ref.asset._ref.split("-")[3];
 
 }
@@ -119,4 +120,15 @@ export function portableTextToHtml(blocks = []) {
     .map(renderBlock)
     .filter(Boolean)
     .join("\n");
+}
+
+
+export function cropUrl(url, { w = 1200, h = 900, fit = "crop" } = {}) {
+  if (!url) return "";
+  const u = new URL(url);
+  u.searchParams.set("w", w);
+  u.searchParams.set("h", h);
+  u.searchParams.set("fit", fit);
+  u.searchParams.set("auto", "format");
+  return u.toString();
 }
