@@ -2,3 +2,18 @@ $red: #d33124;
 $yellow: #f3ac2d;
 $blue: #004a73;
 $purple: #5b3a80;
+
+$breakpoints: (
+  medium: 1000px,
+  small: 550px
+);
+
+@mixin respond($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media (max-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @error "No breakpoint named `#{$size}`";
+  }
+}

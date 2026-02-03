@@ -106,6 +106,16 @@ header ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
+@media (max-width: 1000px) {
+  header ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 550px) {
+  header ul {
+    display: block;
+  }
+}
 header ul li {
   padding: 0.5em;
 }
@@ -138,11 +148,33 @@ header ul li {
   min-height: 80vh;
 }
 
-.grid-four {
+.grid-large-four {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: 2em;
   gap: 2em;
+}
+@media (max-width: 1000px) {
+  .grid-large-four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 1000px) {
+  .grid-large-four {
+    display: block;
+  }
+}
+
+.grid-large-two {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 2em;
+  gap: 2em;
+}
+@media (max-width: 1000px) {
+  .grid-large-two {
+    display: block;
+  }
 }
 
 footer ul {
@@ -174,6 +206,13 @@ footer ul li {
   gap: 1em;
   margin-bottom: 1em;
 }
+@media (max-width: 1000px) {
+  .submission-full-top .control-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: static;
+  }
+}
 .submission-full-top .control-group {
   display: flex;
 }
@@ -190,6 +229,11 @@ footer ul li {
   width: 20vw;
   position: relative;
   top: -5px;
+}
+@media (max-width: 1000px) {
+  .submission-full-top .slider {
+    width: 100%;
+  }
 }
 .submission-full-top .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -230,15 +274,15 @@ footer ul li {
 }
 .submission-full-top .dropdown-menu {
   position: absolute;
-  bottom: calc(100% + 0.2rem);
+  bottom: calc(100% - 1.8em);
   left: 0;
   z-index: 50;
-  width: 30%;
+  width: 20vw;
   margin: 0;
   padding: 0.25rem 0;
   list-style: none;
   background: white;
-  border: 1px solid currentColor;
+  border-radius: 15px;
 }
 .submission-full-top .dropdown-item {
   padding: 0.55rem 0.9rem;
@@ -294,14 +338,6 @@ img {
   background-size: cover;
 }
 
-.process-images,
-.in-use-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2em;
-  padding: 1em 1em 2em;
-}
-
 .caption {
   text-align: center;
   margin: 0.5em 0 1em;
@@ -342,6 +378,38 @@ article:hover .scroll-on-hover {
 .chevron {
   font-size: 2em;
   line-height: 0;
+}
+
+@media (max-width: 1000px) {
+  .hide-medium {
+    display: none !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .hide-small {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .medium-span-2 {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 550px) {
+  .small-span-1 {
+    grid-column: span 4;
+  }
+}
+
+.medium-center {
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -39,8 +39,8 @@ function ControlPanel({
   }, []);
 
   return (
-    <div className="control-panel">
-      {/* VERSION SELECT (fully styleable) */}
+    <div className="control-panel hide-small">
+      
       {versions?.length > 0 && (
         <div className="control-group">
           <div className="dropdown" ref={dropdownRef}>
@@ -130,7 +130,7 @@ function ControlPanel({
       </div>
 
       {/* ALIGNMENT */}
-      <div>
+      <div className="medium-span-2 medium-center">
         {["left", "center", "right"].map((align) => (
           <div
             key={align}

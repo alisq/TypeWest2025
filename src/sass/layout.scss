@@ -5,7 +5,8 @@
   padding: 0.5em 0.5em 0;
   overflow-x: hidden;
   background: $red;
-  // color: white;
+
+
 }
 
 .top-bar {
@@ -16,12 +17,24 @@
   font-size: 10pt;
   margin-bottom: 1em;
   color: white;
+
+
+
 }
 
 header ul {
   text-align: center;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+
+
+  @include respond(medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond(small) {
+    display:block
+  }  
 
   & li {
     padding: 0.5em;
@@ -56,11 +69,32 @@ header ul {
   min-height: 80vh;
 }
 
-.grid-four {
+.grid-large-four {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: 2em;
   gap: 2em;
+
+    @include respond(medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+      @include respond(medium) {
+    display:block;
+  }
+}
+
+.grid-large-two {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 2em;
+  gap: 2em;
+
+
+
+      @include respond(medium) {
+    display:block;
+  }
 }
 
 footer ul {
@@ -95,6 +129,14 @@ footer ul {
     width: 100%;
     gap: 1em;
     margin-bottom: 1em;
+
+    @include respond(medium) {
+        
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        position:static
+        
+    }
   }
 
   & .control-group {
@@ -115,6 +157,12 @@ footer ul {
     width: 20vw;
     position: relative;
     top: -5px;
+
+
+    @include respond(medium) {
+        
+        width:100%;   
+    }
 
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
@@ -160,15 +208,16 @@ footer ul {
 
   & .dropdown-menu {
     position: absolute;
-    bottom: calc(100% + 0.2rem);
+    bottom: calc(100% - 1.8em);
     left: 0;
     z-index: 50;
-    width: 30%;
+    width: 20vw;
     margin: 0;
     padding: 0.25rem 0;
     list-style: none;
     background: white;
-    border: 1px solid currentColor;
+    // border: 1px solid currentColor;
+    border-radius:15px;
   }
 
   & .dropdown-item {
@@ -236,13 +285,13 @@ img {
   background-size: cover;
 }
 
-.process-images,
-.in-use-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2em;
-  padding: 1em 1em 2em;
-}
+// .process-images,
+// .in-use-images {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   gap: 2em;
+//   padding: 1em 1em 2em;
+// }
 
 .caption {
   text-align: center;
@@ -293,4 +342,36 @@ article:hover .scroll-on-hover {
 .chevron {
   font-size: 2em;
   line-height: 0;
+}
+
+
+.hide-medium {
+    @include respond(medium) {
+        display:none!important;
+    }
+}
+
+
+.hide-small {
+    @include respond(small) {
+        display:none!important;
+    }
+}
+
+
+.medium-span-2 {
+    @include respond(medium) {
+        grid-column: span 2;
+    }
+}
+
+
+.small-span-1 {
+    @include respond(small) {
+        grid-column: span 4;
+    }
+}
+
+.medium-center {
+    text-align: center;
 }

@@ -95,7 +95,7 @@ function SubmissionFull({ items }) {
           contentEditable
           className={`${sluggify(typefaceName)}-${sluggify(selectedFont?.note || "")}`}
           style={{
-            fontSize: `${fontSize}px`,
+            fontSize: `${fontSize}vw`,
             lineHeight: `${leading / 10}`,
             letterSpacing: `${tracking / 500}em`,
             textAlign: activeOrientation
@@ -123,9 +123,9 @@ function SubmissionFull({ items }) {
       </section>
 
       <section className="submission-full-body">
-        <div className="grid-four">
-          <div><h3>About</h3>{longDescText}</div>
-          <div></div>
+        <div className="grid-large-four">
+          <div className="medium-span-2"><h3>About</h3>{longDescText}</div>
+          <div className="medium-span-2"></div>
           <div>
             {authorImage && (
               <div
@@ -138,7 +138,7 @@ function SubmissionFull({ items }) {
         </div>
 
         {processImages?.length > 0 && (
-          <div className="process-images">
+          <div className="process-images grid-large-two">
             <h3>Process</h3>
             <div></div>
             {processImages.map((processImage) => (
@@ -153,7 +153,7 @@ function SubmissionFull({ items }) {
         
 
         {inUseImages?.length > 0 && (
-          <div className="in-use-images">
+          <div className="in-use-images grid-large-two">
             <h3>In Use</h3>
             <div></div>
             {inUseImages.map((inUseImage) => (
