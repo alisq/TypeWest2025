@@ -18,7 +18,7 @@ function VideoEmbed({ videoUrl, title = "Embedded video", aspect = "16 / 9" }) {
 
   return (
     <div
-      className="videoEmbed"
+      className="video-embed"
       style={{
         width: "100%",
         aspectRatio: aspect, // modern responsive approach

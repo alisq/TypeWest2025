@@ -3,7 +3,7 @@ import SubmissionTeaser from "./submissionTeaser.jsx";
 
 function SubmissionList({ items = [] }) {
   return (
-    <div className="submission_teaser_list">
+    <div className="submission-teaser-list">
       {items.map((item) => (
         <Link
           key={item._id}

@@ -12,7 +12,7 @@ function SubmissionFull({ items }) {
   const item = useMemo(() => items?.find((i) => i._id === id), [items, id]);
 
   // Local UI state (hooks must be top-level)
-  const [fontSize, setFontSize] = useState(window.innerWidth < 550 ? 50 : 150);
+  const [fontSize, setFontSize] = useState((window.innerWidth < 550 ? 10 : 10));
   const [leading, setLeading] = useState(10);
   const [tracking, setTracking] = useState(0);
   const [activeOrientation, setActiveOrientation] = useState("left");
@@ -52,6 +52,8 @@ function SubmissionFull({ items }) {
     biography,
     foregroundColor,
     backgroundColor,
+    specimen_text_long,
+    specimen_text_long_html,
     videoUrl,
     processImages,
     inUseImages
@@ -66,17 +68,32 @@ function SubmissionFull({ items }) {
 
   return (
     <>
-      <section className={"submission_full_top " + sluggify(author || "")}>
-        <div className="two_up">
-          <div className="left">
+      <section className={"submission-full-top " + sluggify(author || "")}>
+        <div className="two-up">
+          <div className="text-left">
             <strong>{typefaceName}</strong> by {author}
           </div>
-          <div className="right">{shortDesc}</div>
+          <div className="text-right">{shortDesc}</div>
         </div>
 
-        <h2
+        {(specimen_text_long != undefined) ? (
+          <h2
           contentEditable
-          className={`${sluggify(typefaceName)}_${sluggify(selectedFont?.note || "")}`}
+          className={`${sluggify(typefaceName)}-${sluggify(selectedFont?.note || "")} specimen-text-long`}
+          style={{
+            fontSize: `${fontSize}vw`,
+            lineHeight: `${leading / 10}`,
+            letterSpacing: `${tracking / 500}em`,
+            textAlign: activeOrientation
+          }}
+          key={selectedFont?._id}
+        >
+          {parse(specimen_text_long_html.code)}
+        </h2>
+        ) : (
+<h2
+          contentEditable
+          className={`${sluggify(typefaceName)}-${sluggify(selectedFont?.note || "")}`}
           style={{
             fontSize: `${fontSize}px`,
             lineHeight: `${leading / 10}`,
@@ -87,6 +104,7 @@ function SubmissionFull({ items }) {
         >
           {fonts[0].testText}
         </h2>
+        )}
 
         <ControlPanel
           fontName={typefaceName}
@@ -104,14 +122,14 @@ function SubmissionFull({ items }) {
         />
       </section>
 
-      <section className="submission_full_body">
-        <div className="grid_four">
+      <section className="submission-full-body">
+        <div className="grid-four">
           <div><h3>About</h3>{longDescText}</div>
           <div></div>
           <div>
             {authorImage && (
               <div
-                className="authorImage"
+                className="author-image"
                 style={{ backgroundImage: `url(${getImageURL(authorImage)})` }}
               />
             )}
@@ -120,11 +138,11 @@ function SubmissionFull({ items }) {
         </div>
 
         {processImages?.length > 0 && (
-          <div className="processImages">
+          <div className="process-images">
             <h3>Process</h3>
             <div></div>
             {processImages.map((processImage) => (
-              <div className="processImage" key={processImage?._key || processImage?.image?.asset?._ref}>
+              <div className="process-image" key={processImage?._key || processImage?.image?.asset?._ref}>
                 <img src={cropUrl(processImage.image.asset.url, { w: 1600, h: 1200 })} alt={processImage.alt || ""} />
                 <div className="caption">{processImage.caption}</div>
               </div>
@@ -135,11 +153,11 @@ function SubmissionFull({ items }) {
         
 
         {inUseImages?.length > 0 && (
-          <div className="inUseImages">
+          <div className="in-use-images">
             <h3>In Use</h3>
             <div></div>
             {inUseImages.map((inUseImage) => (
-              <div className="inUseImage" key={inUseImage?._key || inUseImage?.image?.asset?._ref}>
+              <div className="in-use-image" key={inUseImage?._key || inUseImage?.image?.asset?._ref}>
                 <img src={cropUrl(inUseImage.image.asset.url, { w: 1600, h: 1200 })} alt={inUseImage.alt || ""} />
                 <div className="caption">{inUseImage.caption}</div>
               </div>

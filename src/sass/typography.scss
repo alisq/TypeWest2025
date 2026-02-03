@@ -1,79 +1,90 @@
 
 @font-face {
-    font-family: 'Duplicate';
-    src: url('/public/fonts/DuplicateSans-Regular-Web.woff') format('woff');
-    font-weight:normal;    
+  font-family: "Duplicate";
+  src: url("/public/fonts/DuplicateSans-Regular-Web.woff") format("woff");
+  font-weight: normal;
 }
 
 @font-face {
-    font-family: 'Duplicate';
-    src: url('/public/fonts/DuplicateSans-Bold-Web.woff') format('woff');
-    font-weight:bold;    
+  font-family: "Duplicate";
+  src: url("/public/fonts/DuplicateSans-Bold-Web.woff") format("woff");
+  font-weight: bold;
 }
 
 @font-face {
-    font-family: 'Duplicate';
-    src: url('/public/fonts/DuplicateSans-RegularItalic-Web.woff') format('woff');
-    font-weight:normal;    
-    font-style:italic;
+  font-family: "Duplicate";
+  src: url("/public/fonts/DuplicateSans-RegularItalic-Web.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
 }
 
 body {
-    font-family:'Duplicate';
-    font-size:17px;
-    line-height:1.2;
+  font-family: "Duplicate";
+  font-size: 17px;
+  line-height: 1.2;
 }
 
 a:link,
 a:visited {
-    color:inherit;
-    
+  color: inherit;
 }
+
 a:hover {
-text-decoration:none;
+  text-decoration: none;
 }
 
 p {
-    margin-bottom:0.5em;
+  margin-bottom: 0.5em;
 }
 
 h2 {
-    outline:0;
+  outline: 0;
 }
-
 
 h3 {
-    font-weight:bold;
-    margin-bottom:1em;
+  font-weight: bold;
+  margin-bottom: 1em;
 }
+
 strong {
-    font-weight:bold;
+  font-weight: bold;
 }
 
+.text-right {
+  text-align: right;
+}
 
-.right { text-align:right; }
-.center { text-align:center; }
-.left { text-align:left }
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
 
 .small {
-    font-size:0.8em;
+  font-size: 0.8em;
 }
 
-     .two_columns {
-        column-gap: 1em;
-        column-count:2;
-    }
+.two-columns {
+  column-gap: 1em;
+  column-count: 2;
+}
 
 .nav a {
-text-decoration:none;
+  text-decoration: none;
 }
 
 .no-wrap {
-    white-space:nowrap;
+  white-space: nowrap;
 }
 
 h4 {
-    font-size:70px;
-    line-height: 1;
-    padding-bottom:0;
+  font-size: 70px;
+  line-height: 1;
+  padding-bottom: 0;
+}
+
+.specimen-text-long {
+    white-space: pre-wrap;
 }

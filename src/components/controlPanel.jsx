@@ -39,19 +39,19 @@ function ControlPanel({
   }, []);
 
   return (
-    <div className="control_panel">
+    <div className="control-panel">
       {/* VERSION SELECT (fully styleable) */}
       {versions?.length > 0 && (
-        <div className="control_group">
+        <div className="control-group">
           <div className="dropdown" ref={dropdownRef}>
             <div
               type="button"
-              className="dropdownTrigger"
+              className="dropdown-trigger"
               onClick={() => setOpen((o) => !o)}
               aria-haspopup="listbox"
               aria-expanded={open}
             >
-              <span className="dropdownValue">
+              <span className="dropdown-value">
                 {fontName} {activeVersion}
               </span>
               <span className="chevron" aria-hidden="true">
@@ -60,16 +60,17 @@ function ControlPanel({
             </div>
 
             {open && (
-              <ul className="dropdownMenu" role="listbox">
+              <ul className="dropdown-menu" role="listbox">
                 {versions.map((version) => (
                   <li
                     key={version}
                     role="option"
                     aria-selected={version === activeVersion}
-                    className={`dropdownItem ${
-                      version === activeVersion ? "active" : ""
+                    className={`dropdown-item ${
+                      version === activeVersion ? "is-active" : ""
                     }`}
                     onClick={() => {
+                      stripSpecimenSpans();
                       setActiveVersion(version);
                       setOpen(false);
                     }}
@@ -84,22 +85,22 @@ function ControlPanel({
       )}
 
       {/* FONT SIZE */}
-      <div className="slider_container">
+      <div className="slider-container">
         <input
           className="slider"
           type="range"
-          min="30"
-          max="250"
+          min="1"
+          max="20"
           value={fontSize}
-          onChange={(e) => setFontSize(parseInt(e.target.value, 10))}
+          onChange={(e) => setFontSize(e.target.value)}
         />
         <div>
-          Size: <strong>{fontSize}px</strong>
+          Size: <strong>{fontSize}vw</strong>
         </div>
       </div>
 
       {/* LEADING */}
-      <div className="slider_container">
+      <div className="slider-container">
         <input
           className="slider"
           type="range"
@@ -114,7 +115,7 @@ function ControlPanel({
       </div>
 
       {/* TRACKING */}
-      <div className="slider_container">
+      <div className="slider-container">
         <input
           className="slider"
           type="range"
@@ -133,8 +134,8 @@ function ControlPanel({
         {["left", "center", "right"].map((align) => (
           <div
             key={align}
-            className={`text_align ${align} ${
-              activeOrientation === align ? "active" : ""
+            className={`text-align align-${align} ${
+              activeOrientation === align ? "is-active" : ""
             }`}
             onClick={() => setActiveOrientation(align)}
             role="button"
@@ -154,3 +155,12 @@ function ControlPanel({
 }
 
 export default ControlPanel;
+
+
+const stripSpecimenSpans = () => {
+  document
+    .querySelectorAll(".specimen-text-long span")
+    .forEach(span => {
+      span.replaceWith(...span.childNodes);
+    });
+};

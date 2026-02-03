@@ -36,7 +36,7 @@ function LoadFonts({ font, author, fontName, fontStyle }) {
         font-style: normal;
       }
 
-      .${sluggify(fontName)}_${sluggify(styleName)} {
+      .${sluggify(fontName)}-${sluggify(styleName)} {
         font-family: '${fontName}_${styleName}';
       }
     `;

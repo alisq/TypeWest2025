@@ -6,9 +6,9 @@ function Header() {
         <header>
             <ul className="nav">
             <Link to="/">
-                <li className="light two_up">                
-                    <h1 className="left"><strong>Type West</strong></h1>
-                    <div className="right">Class of 2025</div>                
+                <li className="light two-up">                
+                    <h1 className="text-left"><strong>Type West</strong></h1>
+                    <div className="text-right">Class of 2025</div>                
                 </li>
             </Link>
             <li className="dark">
