@@ -23,7 +23,7 @@ function Footer() {
                     Burgin Canbay<br />
                     Flora de Carvalho<br />
                     Amy Copeland<br />
-                    Dominika Federikowicz<br />
+                    Dominika Federowicz<br />
                     Dallas Ford<br />
                     Michelle Ghiotti<br />
                     Alexis Gonzalez<br />
