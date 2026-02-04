@@ -10,7 +10,9 @@ function SubmissionFull({ items }) {
 
   // Derive item safely (can be undefined)
   const item = useMemo(() => items?.find((i) => i._id === id), [items, id]);
+ 
 
+  
   // Local UI state (hooks must be top-level)
   const [fontSize, setFontSize] = useState((window.innerWidth < 550 ? 10 : 10));
   const [leading, setLeading] = useState(10);
@@ -26,6 +28,13 @@ function SubmissionFull({ items }) {
     if (!item?.typefaceName) return;
     document.title = `${item.typefaceName} | TypeWest 2025 Online Cohort`;
   }, [item?.typefaceName]);
+
+
+  useEffect(() => {
+  if (item?.specimen_text_font_size == null) return;
+  setFontSize(item.specimen_text_font_size);
+}, [item?.specimen_text_font_size]);
+
 
   // Initialize version when fonts arrive / change
   useEffect(() => {
@@ -54,12 +63,13 @@ function SubmissionFull({ items }) {
     backgroundColor,
     specimen_text_long,
     specimen_text_long_html,
+    specimen_text_font_size,
     videoUrl,
     processImages,
     inUseImages
   } = item;
 
-console.log(specimen_text_long_html.code)
+  
   
   
   const longDescText =
