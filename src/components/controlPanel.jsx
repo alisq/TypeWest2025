@@ -84,7 +84,7 @@ function ControlPanel({
         </div>
       )}
 
-      {/* FONT SIZE */}
+      {/* <div className="sliders"> */}
       <div className="slider-container">
         <input
           className="slider"
@@ -94,7 +94,7 @@ function ControlPanel({
           value={fontSize}
           onChange={(e) => setFontSize(e.target.value)}
         />
-        <div>
+        <div className="small">
           Size: <strong>{fontSize}vw</strong>
         </div>
       </div>
@@ -109,7 +109,7 @@ function ControlPanel({
           value={leading}
           onChange={(e) => setLeading(e.target.value)}
         />
-        <div >
+        <div className="small">
           Line Height: <strong>{leading / 10}</strong>
         </div>
       </div>
@@ -124,10 +124,11 @@ function ControlPanel({
           value={tracking}
           onChange={(e) => setTracking(e.target.value)}
         />
-        <div>
+        <div className="small">
           Tracking: <strong>{tracking}%</strong>
         </div>
       </div>
+      {/* </div> */}
 
       {/* ALIGNMENT */}
       <div className="medium-span-2 medium-center">
