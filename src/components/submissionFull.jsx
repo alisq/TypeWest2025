@@ -59,7 +59,8 @@ function SubmissionFull({ items }) {
     inUseImages
   } = item;
 
-
+console.log(specimen_text_long_html.code)
+  
   
   const longDescText =
     Array.isArray(longDesc)
@@ -76,7 +77,7 @@ function SubmissionFull({ items }) {
           <div className="text-right">{shortDesc}</div>
         </div>
 
-        {(specimen_text_long != undefined) ? (
+        {(specimen_text_long_html != undefined) ? (
           <h2
           contentEditable
           className={`${sluggify(typefaceName)}-${sluggify(selectedFont?.note || "")} specimen-text-long`}
