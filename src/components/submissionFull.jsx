@@ -26,7 +26,7 @@ function SubmissionFull({ items }) {
   // Set document title when item arrives
   useEffect(() => {
     if (!item?.typefaceName) return;
-    document.title = `${item.typefaceName} | TypeWest 2025 Online Cohort`;
+    document.title = `${item.typefaceName} | TypeWest 2025`;
   }, [item?.typefaceName]);
 
 
@@ -150,7 +150,7 @@ function SubmissionFull({ items }) {
           <div className="medium-span-2">
             {showAbout && (
               <>
-                <h3>About</h3>
+                <h3>About <em>{typefaceName}</em></h3>
                 {longDescText}
               </>
             )}

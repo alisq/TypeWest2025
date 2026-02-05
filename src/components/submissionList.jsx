@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import SubmissionTeaser from "./submissionTeaser.jsx";
+import { useEffect } from "react";
 
 function SubmissionList({ items = [] }) {
+
+
+  // Set document title when item arrives
+    useEffect(() => {
+    
+      document.title = `TypeWest 2025`;
+    });
+  
+
+
   return (
     <div className="submission-teaser-list">
       {items.map((item) => (
