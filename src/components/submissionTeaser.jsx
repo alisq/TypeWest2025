@@ -3,7 +3,7 @@ import { sluggify } from '../utils/functions.js';
 
 function SubmissionTeaser({fonts, typefaceName, shortDesc, longDesc, woffFile, customTesterText, processImages,externalFontWebsite, inUseImages, author, biography, externalLink, foregroundColor, backgroundColor}) {
 
-  console.log(customTesterText)
+  
      
   return (
     <article 
@@ -28,7 +28,9 @@ function SubmissionTeaser({fonts, typefaceName, shortDesc, longDesc, woffFile, c
 
       <h4 className="scroll-on-hover">
 
+ {fonts[0].note && (
                 <span className={sluggify(typefaceName) + "-" + sluggify(fonts[0].note)}>{customTesterText} </span>
+ )}
           
         </h4>
     </article>
