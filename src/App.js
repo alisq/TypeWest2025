@@ -31,17 +31,19 @@ function App() {
          
          <Header />
 
-          {items.map(item =>
-  item.fonts.map(font => (
-    <LoadFonts
-      key={`font-${item._id}-${font._key || font.note}`}
-      font={font.file}
-      author={item.author}
-      fontName={item.typefaceName}
-      fontStyle={font.note}
-    />
-  ))
-)}
+          {items.map((item) =>
+            item?.fonts?.length
+              ? item.fonts.map((font) => (
+                  <LoadFonts
+                    key={`font-${item._id}-${font._key || font.note}`}
+                    font={font.file}
+                    author={item.author}
+                    fontName={item.typefaceName}
+                    fontStyle={font.note}
+                  />
+                ))
+              : null
+          )}
 
      <div id="container">
         

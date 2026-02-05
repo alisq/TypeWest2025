@@ -77,17 +77,27 @@ function SubmissionFull({ items }) {
       ? longDesc.flatMap((block) => block?.children || []).map((c) => c?.text || "").join("")
       : "";
 
+  const showTeaserText = Boolean(fonts?.[0]?.testText);
+  const showSpecimenHtml = Boolean(specimen_text_long_html?.code);
+  const showAbout = Boolean(longDescText);
+  const showBiography = Array.isArray(biography) && biography.length > 0;
+  const showProcessImages = Array.isArray(processImages) && processImages.length > 0;
+  const showInUseImages = Array.isArray(inUseImages) && inUseImages.length > 0;
+  const showVideo = Boolean(videoUrl);
+
   return (
     <>
       <section className={"submission-full-top " + sluggify(author || "")}>
         <div className="two-up">
           <div className="text-left">
-            <strong>{typefaceName}</strong> by {author}
+            {typefaceName && <strong>{typefaceName}</strong>}
+            {typefaceName && author && " by "}
+            {author && <span>{author}</span>}
           </div>
-          <div className="text-right">{shortDesc}</div>
+          <div className="text-right">{shortDesc && <span>{shortDesc}</span>}</div>
         </div>
 
-        {(specimen_text_long_html != undefined) ? (
+        {showSpecimenHtml ? (
           <h2
           contentEditable
           className={`${sluggify(typefaceName)}-${sluggify(selectedFont?.note || "")} specimen-text-long`}
@@ -113,29 +123,38 @@ function SubmissionFull({ items }) {
           }}
           key={selectedFont?._id}
         >
-          {fonts[0].testText}
+          {showTeaserText ? fonts[0].testText : ""}
         </h2>
         )}
 
-        <ControlPanel
-          fontName={typefaceName}
-          versions={fonts.map((f) => f.note)}
-          activeVersion={activeVersion}
-          setActiveVersion={setActiveVersion}
-          fontSize={fontSize}
-          setFontSize={setFontSize}
-          leading={leading}
-          setLeading={setLeading}
-          tracking={tracking}
-          setTracking={setTracking}
-          activeOrientation={activeOrientation}
-          setActiveOrientation={setActiveOrientation}
-        />
+        {typefaceName && fonts?.length > 0 && (
+          <ControlPanel
+            fontName={typefaceName}
+            versions={fonts.map((f) => f.note).filter(Boolean)}
+            activeVersion={activeVersion}
+            setActiveVersion={setActiveVersion}
+            fontSize={fontSize}
+            setFontSize={setFontSize}
+            leading={leading}
+            setLeading={setLeading}
+            tracking={tracking}
+            setTracking={setTracking}
+            activeOrientation={activeOrientation}
+            setActiveOrientation={setActiveOrientation}
+          />
+        )}
       </section>
 
       <section className="submission-full-body">
         <div className="grid-large-four">
-          <div className="medium-span-2"><h3>About</h3>{longDescText}</div>
+          <div className="medium-span-2">
+            {showAbout && (
+              <>
+                <h3>About</h3>
+                {longDescText}
+              </>
+            )}
+          </div>
           <div className="medium-span-2"></div>
           <div>
             {authorImage && (
@@ -145,39 +164,50 @@ function SubmissionFull({ items }) {
               />
             )}
           </div>
-          <div><h3>{author}</h3>{parse(portableTextToHtml(biography))}</div>
+          <div>
+            {author && <h3>{author}</h3>}
+            {showBiography && parse(portableTextToHtml(biography))}
+          </div>
         </div>
 
-        {processImages?.length > 0 && (
+        {showProcessImages && (
           <div className="process-images grid-large-two">
             <h3>Process</h3>
             <div></div>
-            {processImages.map((processImage) => (
-              <div className="process-image" key={processImage?._key || processImage?.image?.asset?._ref}>
-                <img src={cropUrl(processImage.image.asset.url, { w: 1600, h: 1200 })} alt={processImage.alt || ""} />
-                <div className="caption">{processImage.caption}</div>
-              </div>
-            ))}
+            {processImages.map((processImage) => {
+              const url = processImage?.image?.asset?.url;
+              if (!url) return null;
+              return (
+                <div className="process-image" key={processImage?._key || processImage?.image?.asset?._ref}>
+                  <img src={cropUrl(url, { w: 1600, h: 1200 })} alt={processImage?.alt || ""} />
+                  {processImage?.caption && <div className="caption">{processImage.caption}</div>}
+                </div>
+              );
+            })}
           </div>
         )}
 
         
 
-        {inUseImages?.length > 0 && (
+        {showInUseImages && (
           <div className="in-use-images grid-large-two">
             <h3>In Use</h3>
             <div></div>
-            {inUseImages.map((inUseImage) => (
-              <div className="in-use-image" key={inUseImage?._key || inUseImage?.image?.asset?._ref}>
-                <img src={cropUrl(inUseImage.image.asset.url, { w: 1600, h: 1200 })} alt={inUseImage.alt || ""} />
-                <div className="caption">{inUseImage.caption}</div>
-              </div>
-            ))}
+            {inUseImages.map((inUseImage) => {
+              const url = inUseImage?.image?.asset?.url;
+              if (!url) return null;
+              return (
+                <div className="in-use-image" key={inUseImage?._key || inUseImage?.image?.asset?._ref}>
+                  <img src={cropUrl(url, { w: 1600, h: 1200 })} alt={inUseImage?.alt || ""} />
+                  {inUseImage?.caption && <div className="caption">{inUseImage.caption}</div>}
+                </div>
+              );
+            })}
           </div>
         )}
 
 
-        {videoUrl !== undefined && (
+        {showVideo && (
           
           <VideoEmbed videoUrl={videoUrl} />
           
