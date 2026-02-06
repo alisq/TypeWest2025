@@ -272,5 +272,7 @@ article:hover .scroll-on-hover {
 }
 
 .medium-two-up {
+    @include respond(medium) {
     grid-template-columns:1fr 1fr;
+    }
 }

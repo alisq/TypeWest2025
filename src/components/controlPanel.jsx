@@ -91,7 +91,7 @@ function ControlPanel({
           type="range"
           min="1"
           max="20"
-          step="0.5"
+          step="0.25"
           value={fontSize}
           onChange={(e) => setFontSize(e.target.value)}
         />
@@ -107,6 +107,7 @@ function ControlPanel({
           type="range"
           min="8"
           max="20"
+          step="0.25"
           value={leading}
           onChange={(e) => setLeading(e.target.value)}
         />
@@ -122,7 +123,7 @@ function ControlPanel({
           type="range"
           min="-20"
           max="100"
-          s
+          step="0.1"
           value={tracking}
           onChange={(e) => setTracking(e.target.value)}
         />

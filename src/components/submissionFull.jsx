@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { PortableText } from "@portabletext/react";
 import { useParams } from "react-router-dom";
 import { sluggify, getImageURL, cropUrl, portableTextToHtml } from "../utils/functions.js";
 import parse from "html-react-parser";
@@ -63,9 +64,6 @@ function SubmissionFull({ items }) {
     author,
     authorImage,
     biography,
-    foregroundColor,
-    backgroundColor,
-    specimen_text_long,
     specimen_text_long_html,
     specimen_text_font_size,
     videoUrl,
@@ -73,17 +71,10 @@ function SubmissionFull({ items }) {
     inUseImages
   } = item;
 
-  
-  
-  
-  const longDescText =
-    Array.isArray(longDesc)
-      ? longDesc.flatMap((block) => block?.children || []).map((c) => c?.text || "").join("")
-      : "";
 
   const showTeaserText = Boolean(fonts?.[0]?.testText);
   const showSpecimenHtml = Boolean(specimen_text_long_html?.code);
-  const showAbout = Boolean(longDescText);
+  const showAbout = Boolean(longDesc);
   const showBiography = Array.isArray(biography) && biography.length > 0;
   const showProcessImages = Array.isArray(processImages) && processImages.length > 0;
   const showInUseImages = Array.isArray(inUseImages) && inUseImages.length > 0;
@@ -155,7 +146,7 @@ function SubmissionFull({ items }) {
             {showAbout && (
               <>
                 <h3>About <em>{typefaceName}</em></h3>
-                {longDescText}
+                {parse(portableTextToHtml(longDesc))}
               </>
             )}
           </div>

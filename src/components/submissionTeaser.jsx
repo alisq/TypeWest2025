@@ -47,7 +47,7 @@ function SubmissionTeaser({
 
         {hasFontClass && teaserText && (
           <span className={sluggify(typefaceName) + "-" + sluggify(fonts[0].note)}>
-            {teaserText}{" "}
+            {teaserText} &nbsp;
           </span>
         )}
           

@@ -343,8 +343,10 @@ article:hover .scroll-on-hover {
   }
 }
 
-.medium-two-up {
-  grid-template-columns: 1fr 1fr;
+@media (max-width: 1000px) {
+  .medium-two-up {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .control-panel {
