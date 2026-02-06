@@ -20,7 +20,7 @@ function Footer() {
                 <div className="small">
                     <strong>Online cohort</strong><br /><br />
                     Edgar Capula<br />
-                    Burgin Canbay<br />
+                    Burçin Canbay<br />
                     Flora de Carvalho<br />
                     Amy Copeland<br />
                     Dominika Federowicz<br />
@@ -57,9 +57,9 @@ Yvonne Yeh
                     <br />
                     Sahar Afshar<br />
                     <br />
-                    Romina Hernandez<br />
                     Fer Cozzi<br />
-                    Michele Pantene<br />
+                    Romina Hernández<br />                    
+                    Michele Patanè<br />
                     <br />
                     Ewan Clayton<br />
                     Briar Levit<br />
@@ -89,7 +89,6 @@ Grendl Löfkvist<br />
                     <strong>Teaching Assistants  (In-person)</strong><br />
                     <br />
                     Chris Willmore<br />
-                    <br />
                     Eli Block<br />
                     Whitney Smith
 </div>
