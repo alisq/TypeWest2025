@@ -183,7 +183,7 @@ function SubmissionFull({ items }) {
               if (!url) return null;
               return (
                 <div className="process-image" key={processImage?._key || processImage?.image?.asset?._ref}>
-                  <img src={cropUrl(url, { w: 2000 })} alt={processImage?.alt || ""} />
+                  <img src={url} alt={processImage?.alt || ""} />
                   {processImage?.caption && <div className="caption">{processImage.caption}</div>}
                 </div>
               );
@@ -202,7 +202,7 @@ function SubmissionFull({ items }) {
               if (!url) return null;
               return (
                 <div className="in-use-image" key={inUseImage?._key || inUseImage?.image?.asset?._ref}>
-                  <img src={cropUrl(url, { w: 2000})} alt={inUseImage?.alt || ""} />
+                  <img src={url} alt={inUseImage?.alt || ""} />
                   {inUseImage?.caption && <div className="caption">{inUseImage.caption}</div>}
                 </div>
               );
