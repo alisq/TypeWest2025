@@ -95,7 +95,8 @@
     width: 100%;
     padding: 0.3rem 0.6rem;
     font: inherit;
-    background: white;
+    background: black;
+    color:white;
     border-radius: 30px;
     margin: 0;
   }
@@ -109,7 +110,8 @@
     margin: 0;
     padding: 0.25rem 0;
     list-style: none;
-    background: white;
+    background: black;
+    color:white;
     // border: 1px solid currentColor;
     border-radius:15px;
   }
@@ -139,9 +141,11 @@
     position:relative;
     top:-5px;
 
+    
+
     &:hover .bar,
     &.is-active .bar {
-      background: white;
+      border:1px solid black;
     }
 
     & .bar {
@@ -150,6 +154,7 @@
       background-color: black;
       border-radius: 2px;
       transition: 0.3s;
+      box-sizing: content-box;
 
       &:nth-child(2) {
         width: 18px;

@@ -25,6 +25,7 @@ function SubmissionFull({ items }) {
 
   // Set document title when item arrives
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (!item?.typefaceName) return;
     document.title = `${item.typefaceName} | TypeWest 2025`;
   }, [item?.typefaceName]);
@@ -171,15 +172,15 @@ function SubmissionFull({ items }) {
         </div>
 
         {showProcessImages && (
-          <div className="process-images grid-large-two">
-            <h3>Process</h3>
-            <div></div>
+          <div className="process-images">
+            <h3 className="text-center top-pad-2">Process</h3>
+            
             {processImages.map((processImage) => {
               const url = processImage?.image?.asset?.url;
               if (!url) return null;
               return (
                 <div className="process-image" key={processImage?._key || processImage?.image?.asset?._ref}>
-                  <img src={cropUrl(url, { w: 1600, h: 1200 })} alt={processImage?.alt || ""} />
+                  <img src={cropUrl(url, { w: 2000 })} alt={processImage?.alt || ""} />
                   {processImage?.caption && <div className="caption">{processImage.caption}</div>}
                 </div>
               );
@@ -190,15 +191,15 @@ function SubmissionFull({ items }) {
         
 
         {showInUseImages && (
-          <div className="in-use-images grid-large-two">
-            <h3>In Use</h3>
-            <div></div>
+          <div className="in-use-images">
+            <h3 className="text-center top-pad-2">In Use</h3>
+            
             {inUseImages.map((inUseImage) => {
               const url = inUseImage?.image?.asset?.url;
               if (!url) return null;
               return (
                 <div className="in-use-image" key={inUseImage?._key || inUseImage?.image?.asset?._ref}>
-                  <img src={cropUrl(url, { w: 1600, h: 1200 })} alt={inUseImage?.alt || ""} />
+                  <img src={cropUrl(url, { w: 2000})} alt={inUseImage?.alt || ""} />
                   {inUseImage?.caption && <div className="caption">{inUseImage.caption}</div>}
                 </div>
               );

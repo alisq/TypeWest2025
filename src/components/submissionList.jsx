@@ -9,6 +9,7 @@ function SubmissionList({ items = [] }) {
     useEffect(() => {
     
       document.title = `TypeWest 2025`;
+      window.scrollTo(0, 0);
     });
   
 

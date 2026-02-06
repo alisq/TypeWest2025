@@ -1,6 +1,7 @@
 @use "vars" as *;
 
 .submission-teaser {
+    border-top: 1px solid;
   // aspect-ratio: 3 / 1.5;
   padding: 0.5em 0.5em 0;
   overflow-x: hidden;
@@ -10,13 +11,13 @@
 }
 
 .top-bar {
-  border-bottom: 1px solid;
+  
   display: grid;
   grid-template-columns: 1fr 3fr;
   padding: 0.5em;
   font-size: 10pt;
-  margin-bottom: 0.5em;
-  color: white;
+  margin-bottom: 1em;
+  color: black;
 
 
 
@@ -111,6 +112,8 @@ footer ul {
   position: relative;
   background: $red;
   padding-bottom: 5em; 
+  border-top:1px solid #000;
+  border-bottom:1px solid #000;
   
   @include respond(medium) {
     padding-bottom: 1em;
@@ -134,7 +137,9 @@ img {
 }
 
 .author-image {
-  width: 100%;
+    
+  margin:auto;
+  width: 50%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background-position: 50% 50%;
