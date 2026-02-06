@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/TypeWest2025/static/css/main.37d85875.css",
-    "main.js": "/TypeWest2025/static/js/main.5b426574.js",
+    "main.js": "/TypeWest2025/static/js/main.1d36ab0a.js",
     "static/js/453.a9810033.chunk.js": "/TypeWest2025/static/js/453.a9810033.chunk.js",
     "static/media/DuplicateSans-Bold-Web.woff": "/TypeWest2025/static/media/DuplicateSans-Bold-Web.5a7cf29d8b3aef9faf40.woff",
     "static/media/DuplicateSans-RegularItalic-Web.woff": "/TypeWest2025/static/media/DuplicateSans-RegularItalic-Web.20848dd78e7d91f9452f.woff",
@@ -9,11 +9,11 @@
     "index.html": "/TypeWest2025/index.html",
     "static/media/chevron.svg": "/TypeWest2025/static/media/chevron.0ee9434efa4cb69183cb8006ee523453.svg",
     "main.37d85875.css.map": "/TypeWest2025/static/css/main.37d85875.css.map",
-    "main.5b426574.js.map": "/TypeWest2025/static/js/main.5b426574.js.map",
+    "main.1d36ab0a.js.map": "/TypeWest2025/static/js/main.1d36ab0a.js.map",
     "453.a9810033.chunk.js.map": "/TypeWest2025/static/js/453.a9810033.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.37d85875.css",
-    "static/js/main.5b426574.js"
+    "static/js/main.1d36ab0a.js"
   ]
 }

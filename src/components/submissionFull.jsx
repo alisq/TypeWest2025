@@ -6,10 +6,13 @@ import ControlPanel from "./controlPanel.jsx";
 import VideoEmbed from "./videoEmbed.jsx";
 
 function SubmissionFull({ items }) {
-  const { id } = useParams();
+  const { authorSlug } = useParams();
 
   // Derive item safely (can be undefined)
-  const item = useMemo(() => items?.find((i) => i._id === id), [items, id]);
+  const item = useMemo(
+    () => items?.find((i) => sluggify(i?.author || "") === authorSlug),
+    [items, authorSlug]
+  );
  
 
   
