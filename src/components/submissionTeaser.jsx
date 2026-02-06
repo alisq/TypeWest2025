@@ -38,7 +38,7 @@ function SubmissionTeaser({
       {author && <span>{author}</span>}
     </div>
 
-    <div className="text-right">
+    <div className="text-right small-left">
       {shortDesc && <span>{shortDesc}</span>}
     </div>
   </div>

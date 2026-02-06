@@ -92,13 +92,13 @@ function SubmissionFull({ items }) {
   return (
     <>
       <section className={"submission-full-top " + sluggify(author || "")}>
-        <div className="two-up">
+        <div className="two-up small-one-up">
           <div className="text-left">
             {typefaceName && <strong>{typefaceName}</strong>}
             {typefaceName && author && " by "}
             {author && <span>{author}</span>}
           </div>
-          <div className="text-right">{shortDesc && <span>{shortDesc}</span>}</div>
+          <div className="text-right small-left">{shortDesc && <span>{shortDesc}</span>}</div>
         </div>
 
         {showSpecimenHtml ? (

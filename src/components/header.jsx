@@ -19,9 +19,11 @@ function Header() {
                     Information
                 </li>
             </Link>
+            <Link to="https://typewest.letterformarchive.org/">
             <li className="dark">
-                <a href="https://typewest.letterformarchive.org/" target="_blank">About Type West</a>
+                About Type West
             </li>
+            </Link>
             </ul>
         </header>
     )

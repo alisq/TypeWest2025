@@ -12,7 +12,7 @@ function Footer() {
                     This website is presented by the Type West 2025 Cohort.
                 </p>
             </li>
-            <li className="light four-up">
+            <li className="light four-up medium-two-up">
                 
 
 
