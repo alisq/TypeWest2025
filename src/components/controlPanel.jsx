@@ -105,14 +105,14 @@ function ControlPanel({
         <input
           className="slider"
           type="range"
-          min="0.8"
+          min="0.75"
           max="2"
-          step="0.25"
+          step="0.05"
           value={leading}
           onChange={(e) => setLeading(e.target.value)}
         />
         <div className="small">
-          Line Height: <strong>{leading / 10}</strong>
+          Line Height: <strong>{leading }</strong>
         </div>
       </div>
 
