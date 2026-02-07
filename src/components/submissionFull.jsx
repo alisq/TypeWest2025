@@ -117,7 +117,7 @@ useEffect(() => {
           className={`${sluggify(typefaceName)}-${sluggify(selectedFont?.note || "")}`}
           style={{
             fontSize: `${fontSize}vw`,
-            lineHeight: `${leading / 10}`,
+            lineHeight: `${leading}`,
             letterSpacing: `${tracking / 500}em`,
             textAlign: activeOrientation
           }}
