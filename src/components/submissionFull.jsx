@@ -5,6 +5,7 @@ import { sluggify, getImageURL, cropUrl, portableTextToHtml } from "../utils/fun
 import parse from "html-react-parser";
 import ControlPanel from "./controlPanel.jsx";
 import VideoEmbed from "./videoEmbed.jsx";
+import ImageModal from "./imageModal.jsx";
 
 function SubmissionFull({ items }) {
   const { authorSlug } = useParams();
@@ -15,11 +16,12 @@ function SubmissionFull({ items }) {
     [items, authorSlug]
   );
  
+  const [modalImage, setModalImage] = useState(null);
 
   
   // Local UI state (hooks must be top-level)
   const [fontSize, setFontSize] = useState(10);
-  const [leading, setLeading] = useState(1);
+  const [leading, setLeading] = useState(1.2);
   const [tracking, setTracking] = useState(0);
   const [activeOrientation, setActiveOrientation] = useState("left");
   const [activeVersion, setActiveVersion] = useState("");
@@ -179,7 +181,7 @@ useEffect(() => {
               if (!url) return null;
               return (
                 <div className="process-image" key={processImage?._key || processImage?.image?.asset?._ref}>
-                  <img src={cropUrl(processImage.image.asset.url, { w: 1600, h: 1200 })} alt={processImage.alt || ""} />
+                  <img src={cropUrl(processImage.image.asset.url, { w: 1600, h: 1200 })} alt={processImage.alt || ""} onClick={() => setModalImage(processImage)} />
                   {processImage?.caption && <div className="caption">{processImage.caption}</div>}
                 </div>
               );
@@ -198,7 +200,7 @@ useEffect(() => {
               if (!url) return null;
               return (
                 <div className="in-use-image" key={inUseImage?._key || inUseImage?.image?.asset?._ref}>
-                  <img src={cropUrl(inUseImage.image.asset.url, { w: 1600, h: 1200 })} alt={inUseImage.alt || ""} />
+                  <img src={cropUrl(inUseImage.image.asset.url, { w: 1600, h: 1200 })} alt={inUseImage.alt || ""} onClick={() => setModalImage(inUseImage)} />
                   {inUseImage?.caption && <div className="caption">{inUseImage.caption}</div>}
                 </div>
               );
@@ -213,6 +215,15 @@ useEffect(() => {
           
         )}
       </section>
+
+      {modalImage && (
+        <ImageModal
+          image={modalImage}
+          onClose={() => setModalImage(null)}
+        />
+      )}
+
+
     </>
   );
 }

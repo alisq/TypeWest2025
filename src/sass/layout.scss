@@ -317,3 +317,46 @@ article:hover .scroll-on-hover {
 .padding-1-rem {
     padding:1rem;
 }
+
+
+.modal-overlay {
+
+    position:fixed;
+    top:0;
+    left:0;
+    background:rgba(255,255,255,0.9);
+          width:100vw;
+        height:100vh;
+        padding:5rem;
+  
+
+    .modal-content {
+        padding:5rem;
+        
+    }
+
+    & img {
+        position:absolute;
+        top:50%;
+        left:50%;        
+        transform:translate(-50%,-50%);
+        max-height:90vh;
+        width:auto;
+        
+    }
+
+    .modal-close {
+        position:absolute;
+        top:1rem;
+        right:1rem;
+        font-size:2rem;
+        background:transparent;
+        border:none;
+        transition:all 0.2s;
+
+        &:hover {
+            transform:scale(1.3);
+        }
+    }
+}
+    
