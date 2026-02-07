@@ -49,12 +49,35 @@ header ul {
 
   & li {
     padding: 0.5em;
+    
+    &.header-item-1 {
+       @include respond(medium) {
+            order:1
+        }
+    }
+
+    &.header-item-2 {
+       @include respond(medium) {
+            order:2
+        }
+    }
+    &.header-item-3 {
+       @include respond(medium) {
+            order:4
+        }
+    }
+    &.header-item-4 {
+       @include respond(medium) {
+            order:3
+        }
+    }        
   }
 }
 
 .two-up {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-gap:1em;
 }
 
 .two-em-gap {
@@ -112,6 +135,10 @@ header ul {
 footer ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @include respond(medium) {
+    display:block;
+  }
 
   & li {
     padding: 0.5em;
@@ -184,11 +211,11 @@ img {
 }
 
 .nav {
-  & .light:hover {
+  & a .light:hover {
     background: black;
   }
 
-    & .dark:hover {
+    & a .dark:hover {
     background: white;
   }
 
@@ -200,6 +227,10 @@ img {
   & a:visited:hover .light {
     color: white;
   }
+
+
+
+
 
   & .dark a:link:hover {
     background: white;
@@ -247,6 +278,11 @@ article:hover .scroll-on-hover {
     }
 }
 
+.span-2 {
+    
+        grid-column: span 2;
+    
+}
 
 .medium-span-2 {
     @include respond(medium) {
@@ -267,7 +303,7 @@ article:hover .scroll-on-hover {
 
 .small-one-up {
      @include respond(small) {
-        grid-template-columns: 1fr;
+        display:block;
     }
 }
 
@@ -275,4 +311,9 @@ article:hover .scroll-on-hover {
     @include respond(medium) {
     grid-template-columns:1fr 1fr;
     }
+}
+
+
+.padding-1-rem {
+    padding:1rem;
 }

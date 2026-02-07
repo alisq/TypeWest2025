@@ -105,8 +105,8 @@ function ControlPanel({
         <input
           className="slider"
           type="range"
-          min="8"
-          max="20"
+          min="0.8"
+          max="2"
           step="0.25"
           value={leading}
           onChange={(e) => setLeading(e.target.value)}

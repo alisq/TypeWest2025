@@ -148,10 +148,31 @@ header ul {
 header ul li {
   padding: 0.5em;
 }
+@media (max-width: 1000px) {
+  header ul li.header-item-1 {
+    order: 1;
+  }
+}
+@media (max-width: 1000px) {
+  header ul li.header-item-2 {
+    order: 2;
+  }
+}
+@media (max-width: 1000px) {
+  header ul li.header-item-3 {
+    order: 4;
+  }
+}
+@media (max-width: 1000px) {
+  header ul li.header-item-4 {
+    order: 3;
+  }
+}
 
 .two-up {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1em;
 }
 
 .two-em-gap {
@@ -211,6 +232,11 @@ footer ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+@media (max-width: 1000px) {
+  footer ul {
+    display: block;
+  }
+}
 footer ul li {
   padding: 0.5em;
 }
@@ -269,10 +295,10 @@ img {
   margin: 0.5em 0 1em;
 }
 
-.nav .light:hover {
+.nav a .light:hover {
   background: black;
 }
-.nav .dark:hover {
+.nav a .dark:hover {
   background: white;
 }
 .nav a .light {
@@ -321,6 +347,10 @@ article:hover .scroll-on-hover {
   }
 }
 
+.span-2 {
+  grid-column: span 2;
+}
+
 @media (max-width: 1000px) {
   .medium-span-2 {
     grid-column: span 2;
@@ -339,7 +369,7 @@ article:hover .scroll-on-hover {
 
 @media (max-width: 550px) {
   .small-one-up {
-    grid-template-columns: 1fr;
+    display: block;
   }
 }
 
@@ -347,6 +377,10 @@ article:hover .scroll-on-hover {
   .medium-two-up {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.padding-1-rem {
+  padding: 1rem;
 }
 
 .control-panel {

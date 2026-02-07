@@ -12,8 +12,10 @@ import InformationPage from './components/informationPage.jsx';
 import {shuffleArray, sluggify} from './utils/functions.js';
 
 const SANITY_URL =
-  `https://1ml3hcmy.api.sanity.io/v2026-01-06/data/query/production?query=*[_type=="submission"]{_id,typefaceName,shortDesc,specimen_text_long_html,specimen_text_long,videoUrl,specimen_text_font_size,longDesc,author,authorImage,biography,fonts,customTesterText,processImages[]{caption,alt,image{asset->{url}}},inUseImages[]{caption,alt,image{asset->{url}}}}
+  `https://1ml3hcmy.api.sanity.io/v2026-01-06/data/query/production?query=*[_type=="submission"]{_id,typefaceName,shortDesc,specimen_text_long_html,specimen_text_long,videoUrl,specimen_text_font_size,specimen_text_line_height,longDesc,author,authorImage,biography,fonts,customTesterText,processImages[]{caption,alt,image{asset->{url}}},inUseImages[]{caption,alt,image{asset->{url}}}}
 `
+
+
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
       .then(json => setItems(shuffleArray(json.result)));
   }, []);
 
+
+  
   
   return (
     <div className="App">

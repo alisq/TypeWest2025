@@ -18,8 +18,8 @@ function SubmissionFull({ items }) {
 
   
   // Local UI state (hooks must be top-level)
-  const [fontSize, setFontSize] = useState((window.innerWidth < 550 ? 10 : 10));
-  const [leading, setLeading] = useState(10);
+  const [fontSize, setFontSize] = useState(10);
+  const [leading, setLeading] = useState(1);
   const [tracking, setTracking] = useState(0);
   const [activeOrientation, setActiveOrientation] = useState("left");
   const [activeVersion, setActiveVersion] = useState("");
@@ -39,6 +39,11 @@ function SubmissionFull({ items }) {
   if (item?.specimen_text_font_size == null) return;
   setFontSize(item.specimen_text_font_size);
 }, [item?.specimen_text_font_size]);
+
+useEffect(() => {
+  if (item?.specimen_text_line_height == null) return;
+  setLeading(item.specimen_text_line_height);
+}, [item?.specimen_text_line_height]);
 
 
   // Initialize version when fonts arrive / change
@@ -98,7 +103,7 @@ function SubmissionFull({ items }) {
           className={`${sluggify(typefaceName)}-${sluggify(selectedFont?.note || "")} specimen-text-long`}
           style={{
             fontSize: `${fontSize}vw`,
-            lineHeight: `${leading / 10}`,
+            lineHeight: `${leading}`,
             letterSpacing: `${tracking / 500}em`,
             textAlign: activeOrientation
           }}
@@ -166,15 +171,15 @@ function SubmissionFull({ items }) {
         </div>
 
         {showProcessImages && (
-          <div className="process-images">
-            <h3 className="text-center top-pad-2">Process</h3>
+          <div className="process-images two-up small-one-up padding-1-rem">
+            <h3 className="text-center top-pad-2 span-2">Process</h3>
             
             {processImages.map((processImage) => {
               const url = processImage?.image?.asset?.url;
               if (!url) return null;
               return (
                 <div className="process-image" key={processImage?._key || processImage?.image?.asset?._ref}>
-                  <img src={url} alt={processImage?.alt || ""} />
+                  <img src={cropUrl(processImage.image.asset.url, { w: 1600, h: 1200 })} alt={processImage.alt || ""} />
                   {processImage?.caption && <div className="caption">{processImage.caption}</div>}
                 </div>
               );
@@ -185,15 +190,15 @@ function SubmissionFull({ items }) {
         
 
         {showInUseImages && (
-          <div className="in-use-images">
-            <h3 className="text-center top-pad-2">In Use</h3>
+          <div className="in-use-images two-up small-one-up">
+            <h3 className="text-center top-pad-2 span-2">In Use</h3>
             
             {inUseImages.map((inUseImage) => {
               const url = inUseImage?.image?.asset?.url;
               if (!url) return null;
               return (
                 <div className="in-use-image" key={inUseImage?._key || inUseImage?.image?.asset?._ref}>
-                  <img src={url} alt={inUseImage?.alt || ""} />
+                  <img src={cropUrl(inUseImage.image.asset.url, { w: 1600, h: 1200 })} alt={inUseImage.alt || ""} />
                   {inUseImage?.caption && <div className="caption">{inUseImage.caption}</div>}
                 </div>
               );
