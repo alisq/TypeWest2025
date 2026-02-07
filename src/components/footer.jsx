@@ -36,7 +36,7 @@ function Footer() {
                     Ali S. Qadeer<br />
                     Arlyn Ramos<br />
                     Sabrina Sommer<br />
-                    Uliana Tsoryk 
+                    Uliana Tsoryk <br /><br />
                 </div>
 
                 <div className="small">
