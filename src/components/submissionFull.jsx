@@ -88,9 +88,9 @@ useEffect(() => {
   const showVideo = Boolean(videoUrl);
 
   return (
-    <>
+    <div className="submission-full">
       <section className={"submission-full-top " + sluggify(author || "")}>
-        <div className="two-up small-one-up">
+        <div className="two-up small-one-up padding-bottom-2-rem">
           <div className="text-left">
             {typefaceName && <strong>{typefaceName}</strong>}
             {typefaceName && author && " by "}
@@ -181,7 +181,7 @@ useEffect(() => {
               if (!url) return null;
               return (
                 <div className="process-image" key={processImage?._key || processImage?.image?.asset?._ref}>
-                  <img src={cropUrl(processImage.image.asset.url, { w: 1600, h: 1200 })} alt={processImage.alt || ""} onClick={() => setModalImage(processImage)} />
+                  <img src={cropUrl(processImage.image.asset.url, { w: 800, h: 600 })} alt={processImage.alt || ""} onClick={() => setModalImage(processImage)} />
                   {processImage?.caption && <div className="caption">{processImage.caption}</div>}
                 </div>
               );
@@ -193,14 +193,14 @@ useEffect(() => {
 
         {showInUseImages && (
           <div className="in-use-images two-up small-one-up">
-            <h3 className="text-center top-pad-2 span-2">In Use</h3>
+            <h3 className="text-center padding-1-rem top-pad-2 span-2">In Use</h3>
             
             {inUseImages.map((inUseImage) => {
               const url = inUseImage?.image?.asset?.url;
               if (!url) return null;
               return (
                 <div className="in-use-image" key={inUseImage?._key || inUseImage?.image?.asset?._ref}>
-                  <img src={cropUrl(inUseImage.image.asset.url, { w: 1600, h: 1200 })} alt={inUseImage.alt || ""} onClick={() => setModalImage(inUseImage)} />
+                  <img src={cropUrl(inUseImage.image.asset.url, { w: 800, h: 600 })} alt={inUseImage.alt || ""} onClick={() => setModalImage(inUseImage)} />
                   {inUseImage?.caption && <div className="caption">{inUseImage.caption}</div>}
                 </div>
               );
@@ -224,7 +224,7 @@ useEffect(() => {
       )}
 
 
-    </>
+    </div>
   );
 }
 

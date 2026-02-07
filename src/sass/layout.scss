@@ -144,6 +144,9 @@ footer ul {
     padding: 0.5em;
   }
 }
+.submission-full {
+    padding-bottom:1rem;
+}
 
 .submission-full-top {
   // aspect-ratio: 3 / 1.5;
@@ -167,13 +170,7 @@ footer ul {
     background-color: white;
   }
 
-  & .two-up {
-    padding-bottom:0.5rem;
-
-    @include respond(small) {
-        padding:0 0 1em 0;
-    }
-  }
+ 
 
 
 }
@@ -319,7 +316,13 @@ article:hover .scroll-on-hover {
 }
 
 
-.modal-overlay {
+
+.padding-bottom-2-rem {
+    padding-bottom:2rem;
+}
+ 
+
+.modal-overlay { 
 
     position:fixed;
     top:0;

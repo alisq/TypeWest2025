@@ -241,6 +241,10 @@ footer ul li {
   padding: 0.5em;
 }
 
+.submission-full {
+  padding-bottom: 1rem;
+}
+
 .submission-full-top {
   position: relative;
   background: white;
@@ -261,14 +265,6 @@ footer ul li {
 .submission-full-top h2::selection {
   color: white;
   background-color: white;
-}
-.submission-full-top .two-up {
-  padding-bottom: 0.5rem;
-}
-@media (max-width: 550px) {
-  .submission-full-top .two-up {
-    padding: 0 0 1em 0;
-  }
 }
 
 img {
@@ -381,6 +377,10 @@ article:hover .scroll-on-hover {
 
 .padding-1-rem {
   padding: 1rem;
+}
+
+.padding-bottom-2-rem {
+  padding-bottom: 2rem;
 }
 
 .modal-overlay {
