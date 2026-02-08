@@ -10,6 +10,7 @@ import Footer from './components/footer.jsx';
 import LoadFonts from './components/loadFonts.jsx';
 import InformationPage from './components/informationPage.jsx';
 import {shuffleArray, sluggify} from './utils/functions.js';
+import ReactGA from "react-ga4";
 
 const SANITY_URL =
   `https://1ml3hcmy.api.sanity.io/v2026-01-06/data/query/production?query=*[_type=="submission"]{_id,typefaceName,shortDesc,specimen_text_long_html,specimen_text_long,videoUrl,specimen_text_font_size,specimen_text_line_height,longDesc,author,authorImage,biography,fonts,customTesterText,processImages[]{caption,alt,image{asset->{url}}},inUseImages[]{caption,alt,image{asset->{url}}}}
@@ -20,6 +21,11 @@ const SANITY_URL =
 
 function App() {
   const [items, setItems] = useState([]);
+
+   useEffect(() => {
+    ReactGA.initialize("G-RTKEGEMJME");
+  }, []);
+
 
   useEffect(() => {
     fetch(SANITY_URL)

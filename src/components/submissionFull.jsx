@@ -181,7 +181,7 @@ useEffect(() => {
               if (!url) return null;
               return (
                 <div className="process-image" key={processImage?._key || processImage?.image?.asset?._ref}>
-                  <img src={cropUrl(processImage.image.asset.url, { w: 800, h: 600 })} alt={processImage.alt || ""} onClick={() => setModalImage(processImage)} />
+                  <img src={cropUrl(processImage.image.asset.url, { w: 1200, h: 900 })} alt={processImage.alt || ""} onClick={() => setModalImage(processImage)} />
                   {processImage?.caption && <div className="caption">{processImage.caption}</div>}
                 </div>
               );
@@ -192,21 +192,42 @@ useEffect(() => {
         
 
         {showInUseImages && (
-          <div className="in-use-images two-up small-one-up">
-            <h3 className="text-center padding-1-rem top-pad-2 span-2">In Use</h3>
-            
-            {inUseImages.map((inUseImage) => {
-              const url = inUseImage?.image?.asset?.url;
-              if (!url) return null;
-              return (
-                <div className="in-use-image" key={inUseImage?._key || inUseImage?.image?.asset?._ref}>
-                  <img src={cropUrl(inUseImage.image.asset.url, { w: 800, h: 600 })} alt={inUseImage.alt || ""} onClick={() => setModalImage(inUseImage)} />
-                  {inUseImage?.caption && <div className="caption">{inUseImage.caption}</div>}
-                </div>
-              );
-            })}
-          </div>
-        )}
+  <div className="in-use-images padding-1-rem two-up small-one-up">
+    <h3 className="text-center top-pad-2 span-2">In Use</h3>
+
+    {inUseImages.map((inUseImage) => {
+      const url = inUseImage?.image?.asset?.url;
+      if (!url) return null;
+
+      const cleanUrl = url.split("?")[0];
+      const isGif = cleanUrl.toLowerCase().endsWith(".gif");
+
+      const src = isGif
+        ? url // serve raw gif so it animates
+        : cropUrl(url, { w: 1200, h: 900 });
+
+      return (
+        <div
+          className="in-use-image"
+          key={inUseImage?._key || inUseImage?.image?.asset?._ref}
+        >
+          <img
+            src={src}
+            alt={inUseImage?.alt || ""}
+            onClick={() => setModalImage(inUseImage)}
+          />
+          {inUseImage?.caption && (
+            <div className="caption">{inUseImage.caption}</div>
+          )}
+        </div>
+      );
+    })}
+  </div>
+)}
+
+
+
+        
 
 
         {showVideo && (
